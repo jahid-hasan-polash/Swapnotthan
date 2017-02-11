@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
 	return Redirect::route('index');
 });
@@ -18,10 +19,16 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	
+
 	//Route::controller('password', 'RemindersController');
 
 	Route::get('login', ['as'=>'user.login','uses' => 'Auth\AuthController@login']);
 	Route::post('login', array('as'=>'user.doLogin','uses' => 'Auth\AuthController@doLogin'));
+
+	Route::controller('password', 'RemindersController');
+	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+
 
 	//Page routes
 	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
@@ -29,6 +36,8 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
 	Route::get('/user/contact', array('as'=>'contact', 'uses' => 'PageController@contact'));
+	Route::get('/news/{id}', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
+	
 
 	//Call to the create method of userController for register blade
 	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));

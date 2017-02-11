@@ -5,8 +5,8 @@
 			<div class="row margin-vert-30">
 				<!-- Main Column -->
 				<div class="col-md-9">
-					<h2>{{ $news->title }}</h2><br>
-					<p>{{ $news->description }}</p>
+					<h2>{!!  $news->title  !!}</h2><br>
+					<p>{!!  $news->description  !!}</p>
 				</div>
 				<!-- End Main Column -->
 				<!-- Side Column -->
@@ -25,13 +25,12 @@
 								<li>
 									<div class="recent-post">
 										<a href="#">
-											<!-- <img class="pull-left" src="assets/img/blog/thumbs/thumb1.jpg" alt="thumb1"> -->
-											{{HTML::image('asset/img/blog/thumbs/thumb1.jpg','thumb1',array('class'=>'pull-left'))}}
+											{!! Html::image('asset/img/blog/thumbs/thumb1.jpg','thumb1',array('class'=>'pull-left')) !!}
 										</a>
-										<a href="{{URL::route('newsDetails',$news_link->id)}}" class="posts-list-title">{{$news_link->title}}</a>
+										<a href="{!! URL::route('newsDetails',$news_link->id) !!}" class="posts-list-title">{!! $news_link->title !!}</a>
 										<br>
 										<span class="recent-post-date">
-										{{$news_link->created_at}}
+										{!! $news_link->created_at !!}
 										</span>
 									</div>
 									<div class="clearfix"></div>
