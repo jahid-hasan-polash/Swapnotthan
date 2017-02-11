@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationTable extends Migration
+class CreateBloodDonationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,8 @@ class CreateEducationTable extends Migration
      */
     public function up()
     {
-        Schema::create('education', function (Blueprint $table) {
+        Schema::create('blood_donation', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
-            $table->integer('sector_id')->unsigned()->index();
-            $table->foreign('sector_id')->references('id')
-                    ->on('sectors')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ class CreateEducationTable extends Migration
      */
     public function down()
     {
-        Schema::drop('education');
+        Schema::drop('blood_donation');
     }
 }

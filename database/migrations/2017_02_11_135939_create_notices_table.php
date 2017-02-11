@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommitteesTable extends Migration
+class CreateNoticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateCommitteesTable extends Migration
      */
     public function up()
     {
-        Schema::create('committees', function (Blueprint $table) {
+        Schema::create('notices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('year');
-            $table->string('fiscal');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ class CreateCommitteesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('committees');
+        Schema::drop('notices');
     }
 }

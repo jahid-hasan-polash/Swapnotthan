@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoticeTable extends Migration
+class CreateSectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,8 @@ class CreateNoticeTable extends Migration
      */
     public function up()
     {
-        Schema::create('notice', function (Blueprint $table) {
+        Schema::create('sectors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_id')->unsigned()->index();
-            $table->foreign('member_id')->references('id')
-                    ->on('comittee_members')->onDelete('cascade');
-            $table->string('description');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ class CreateNoticeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notice');
+        Schema::drop('sectors');
     }
 }

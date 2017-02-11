@@ -42,14 +42,10 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $rules =[
-            'firstName' => 'required',
-            'mother' => 'required',
-            'father' => 'required',
-            'present_address' => 'required',
-            'mobile_number' => 'required',
-            'dept' => 'required',
-            'reg_no' => 'required',
-            'password' => 'required',
+            'name'                  => 'required',
+            'email'                 => 'required|unique:users,email',
+            'password'              => 'required|confirmed',
+            'password_confirmation' => 'required'
         ];
         $data = $request->all();
 
@@ -57,42 +53,23 @@ class UsersController extends Controller
 
         if($validation->fails()){
             return redirect()->back()->withErrors($validation)->withInput();
-        } else {
+        }else{
             $user = new User;
-            $user->name = $data['firstName'].' '.$data['lastName'];
-            $user->reg_no = $data['reg_no'];
+            $user->name = $data['name'];
             $user->email = $data['email'];
-            $user->password = Hash::make($request->password);
+            $user->password = Hash::make($data['password']);
 
             if($user->save()){
                 Auth::logout();
-
-                $detail = new UserDetails;
-                $detail->user_id = $user->id;
-                $detail->mothers_name = $data['mother'];
-                $detail->fathers_name = $data['father'];
-                $detail->present_address = $data['present_address'];
-                $detail->mobile_number = $data['mobile_number'];
-                $detail->dept = Department::where('id','=',$data['dept'])->first()->name;
-                $detail->bl_donate_capable = $data['bl_donate_capable']; //this is a boolen value
-                $detail->bl_group = BlGroup::where('id','=',$data['bl_group'])->first()->title;
-                $detail->ex_curr_activities = $data['ex_curr_activities'];
-                $detail->why_to_be_swapnotthanian = $data['why_to_be_swapnotthanian'];
-                $detail->sector_to_work_in = $data['sector_to_work_in'];
-                
-                $detail->save();
-
                 return redirect()->route('login')
                             ->with('success','Registered successfully. Sign In Now.');
             }else{
                 return redirect()->route('dashboard')
                             ->with('error',"Something went wrong.Please Try again.");
             }
-
         }
     }
 
-    
     /**
      * Display the profile Info.
      *

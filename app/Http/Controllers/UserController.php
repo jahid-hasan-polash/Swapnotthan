@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,37 +16,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('user.index');
-    }
-
-    //These are functions for routes
-    public function whatWeDo(){
-        return view('user.whatWeDo');
-    }
-
-    public function contact(){
-        return view('user.contact');
-    }
-
-    public function members(){
-        return view('user.membersDemo');
-    }
-
-    public function executive(){
-        return view('user.membersDemo');
-    }
-
-
-    public function showMission(){
-        return view('user.showMission');
-    }
-
-    public function showSectorDetails(){
-        return view('user.sector');
-    }
-
-    public function showNewsDetails(){
-
+        //
     }
 
     /**
