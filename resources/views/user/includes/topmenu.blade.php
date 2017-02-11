@@ -18,9 +18,6 @@
 						<li><a href="{!! URL::route('index') !!}" >Home</a></li>
 						<li><a href="{!! URL::route('whatWeDo') !!}" >What We Do</a></li>
 						<li><a href="{!! URL::route('executive') !!}">Executives</a></li>
-						<!--
-						<li><a href="{!! URL::route('getInvolved') !!}">Get Involved</a></li>
-						-->
 						<li><span>Get Involved</span>
 							<ul>
 								<li><a href="{!! URL::route('getInvolved') !!}">As a Member</a></li>
