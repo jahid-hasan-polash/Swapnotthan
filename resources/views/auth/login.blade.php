@@ -7,15 +7,17 @@
 
 
 
+
 <body>
 
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
-            <h3 class="text-center m-t-10"> Sign In to <strong>Laravel 5.1</strong> </h3>
+            <h3 class="text-center m-t-10"><strong><?php echo $title; ?></strong> </h3>
         </div>
         <br>
              @include('includes.alert')
+             
 
             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
             <div class="form-group ">
