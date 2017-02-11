@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+<<<<<<< HEAD
 use App\UserDetail;
 use App\UserRole;
+=======
+use App\UserDetails;
+use App\Department;
+>>>>>>> 53ed3fe1ca915c7c565ca79be8c2a98acf70ac4f
 use Validator;
 use Auth;
 use Hash;

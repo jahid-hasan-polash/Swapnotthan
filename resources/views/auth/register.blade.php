@@ -6,13 +6,22 @@
 @include('includes.header')
 
 
+<style type="text/css">
+    .panel{
+       min-width: 130vh;
+       transform: translateY(-50%);
+       transform: translateX(-30%);
+    }
+</style>
+
+
 
 <body>
 
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
-            <h3 class="text-center m-t-10"> Sign Up In <strong>Laravel 5.1</strong> </h3>
+            <h3 class="text-center m-t-10"> Sign Up In <strong>Swapnotthan</strong> </h3>
         </div>
         <br>
         @include('includes.alert')
@@ -21,25 +30,61 @@
 
         <div class="form-group ">
             <div class="col-xs-12"><br>
-                {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
+                {!! Form::text('firstName', '', array('class' => 'form-control', 'placeholder' => 'First Name', 'autofocus')) !!}
             </div>
         </div>
 
         <div class="form-group ">
             <div class="col-xs-12"><br>
-                {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+                {!! Form::text('lastName', '', array('class' => 'form-control', 'placeholder' => 'Last Name', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('mother', '', array('class' => 'form-control', 'placeholder' => 'Mothers Name', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('father', '', array('class' => 'form-control', 'placeholder' => 'Fathers Name', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('present_address', '', array('class' => 'form-control', 'placeholder' => 'Present Address', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('mobile_number', '', array('class' => 'form-control', 'placeholder' => 'Mobile number', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('dept', '', array('class' => 'form-control', 'placeholder' => 'Department', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('reg_no', '', array('class' => 'form-control', 'placeholder' => 'Registration No', 'autofocus')) !!}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-xs-12"><br>
+                {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email', 'autofocus')) !!}
             </div>
         </div>
 
         <div class="form-group ">
             <div class="col-xs-12"><br>
                 {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
-            </div>
-        </div>
-
-        <div class="form-group ">
-            <div class="col-xs-12"><br>
-                {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
             </div>
         </div>
 
