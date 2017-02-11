@@ -5,7 +5,7 @@
             @include('includes.alert')
 
                 <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
-                    {!! Form::open(array('route' => 'user.getInvolved','method'=>'post','class' => 'signup-page')) !!}
+                    {!! Form::open(array('route' => 'user.register','method'=>'post','class' => 'signup-page')) !!}
 
                     	<div class="signup-header">
 							<h2 align='center'>Register as a new member</h2>
@@ -49,19 +49,19 @@
 
 						<!-- Are you capable of donating blood? -->
 						<label>Are you capable of donating blood?</label>
-						{!! Form::select('bl_donate_capable', <!-- there should be a list--> , null, array('class' => 'form-control margin-bottom-20')) !!}
+						{!! Form::select('bl_donate_capable', $capability, null, array('class' => 'form-control margin-bottom-20')) !!}
 
 						<!-- Blood Group -->
-						{!! Form::select('bl_group', $bloodGroup , null, array('class' => 'form-control margin-bottom-20')) !!}
+						{!! Form::select('bl_group', $bloodGroups , null, array('class' => 'form-control margin-bottom-20')) !!}
 
 						<!-- Extra curricular activities -->
-						{!! Form:textarea('ex_curr_activities', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Extra curricular activities')) !!}
+						{!! Form::textarea('ex_curr_activities', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Extra curricular activities')) !!}
 
 						<!-- Why do you want to be a part of Swapnotthan? -->
-						{!! Form:textarea('why_to_be_swapnotthanian', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Why do you want to be a part of Swapnotthan?')) !!}
+						{!! Form::textarea('why_to_be_swapnotthanian', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Why do you want to be a part of Swapnotthan?')) !!}
 
 						<!-- Which sector do you want to work in? -->
-						{!! Form:textarea('sector_to_work_in', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Which sector do you want to work in?')) !!}
+						{!! Form::textarea('sector_to_work_in', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Which sector do you want to work in?')) !!}
 
 						<div class="text-center">
 							{!! Form::submit('Get Started', array('class' => 'btn btn-primary')) !!}

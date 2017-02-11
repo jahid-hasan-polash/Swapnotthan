@@ -20,8 +20,7 @@ Route::group(['middleware' => 'guest'], function(){
 	
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::get('user/create
-		', ['as'=>'user.create','uses' => 'UsersController@create']);
+	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
@@ -31,8 +30,10 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
 	Route::get('/user/contact', array('as'=>'contact', 'uses' => 'PageController@contact'));
-	Route::get('/user/getInvolved', array('as'=>'getInvolved', 'uses' => 'MembersController@create'));
-	Route::post('/user/getInvolved/store', array('as'=>'user.getInvolved', 'uses'=>'MembersController@store'));
+
+	//Call to the create method of userController for register blade
+	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
+	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
 
 
 	// social login route
@@ -52,16 +53,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
-	/*Routes added by Nayem*/
-
-<<<<<<< HEAD
-});
-
-=======
-	
 
 });
 
-
-
->>>>>>> 53ed3fe1ca915c7c565ca79be8c2a98acf70ac4f
