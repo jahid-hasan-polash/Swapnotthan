@@ -51,7 +51,7 @@
 							<!-- Main Text -->
 							<div class="col-md-9">
 								<h2 style="color: #009973">Our Mission</h2>
-								<p><!-- there should be a description --></p>
+								<p>{!! $mission->description !!}</p>
 								<a class="btn btn-success" href=#><!-- Read More page -->
 									Read More
 									<i class="fa-chevron-right"></i>
@@ -62,9 +62,9 @@
 							<div class="col-md-3">
 								<h2 class="margin-bottom-10 " style="color: #009973">Latest News</h2>
 								<ul class="menu">
-									<!-- foreach($newses as $news) -->
-										<a class="fa-angle-right" href=#><!--there should be a title --></a>
-									<!-- endforeach -->
+									@foreach($newses as $news)
+										<a class="fa-angle-right" href="{{!! URL::route( 'news.show', ['id',$news->id]) !!}} ">{{!! $news->title !!}}</a>
+									@endforeach
 								</ul>
 							</div>
 							<!-- End Side Column -->

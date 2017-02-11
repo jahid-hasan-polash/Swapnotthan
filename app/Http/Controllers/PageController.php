@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,11 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $mission = OurMission::first();
+        $newses = News::orderBy('created_at','desc')->take(5)->get();
+        return view('user.index')
+                    ->with('mission',$mission)
+                    ->with('newses',$newses);
     }
 
     //These are functions for routes
