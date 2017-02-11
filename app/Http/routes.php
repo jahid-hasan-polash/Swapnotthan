@@ -18,11 +18,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	
-	Route::controller('password', 'RemindersController');
-	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
-	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
-	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+	//Route::controller('password', 'RemindersController');
+
+	Route::get('login', ['as'=>'user.login','uses' => 'Auth\AuthController@login']);
+	Route::post('login', array('as'=>'user.doLogin','uses' => 'Auth\AuthController@doLogin'));
 
 	//Page routes
 	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
@@ -35,10 +34,6 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
 	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
 
-
-	// social login route
-	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
 });
 

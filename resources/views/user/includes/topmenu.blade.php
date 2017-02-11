@@ -26,7 +26,7 @@
 							</ul>
 						</li>
 						<li><a href="{!! URL::route('contact') !!}" >Contact Us</a></li>
-						<li><a href="#">Login</a></li>
+						<li><a href="{!! URL::route('user.login') !!}">Login</a></li>
 						<!--<li><a href="http://www.swapnotthan.org/sweccha/" class="btn btn-success">Sweccha</a></li>-->
 					</ul>
 				</div>

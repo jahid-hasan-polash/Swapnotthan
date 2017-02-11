@@ -67,8 +67,7 @@ class AuthController extends Controller
     }
     public function login(){
         // return 'Auth Login Panel';
-        return view('auth.login')
-                    ->with('title', 'Login to Swapnotthan');
+        return view('user.login');
     }
 
     public function doLogin(Request $request)
@@ -87,7 +86,7 @@ class AuthController extends Controller
         if ($validation->fails())
         {
 
-            return redirect()->route('login')
+            return redirect()->route('user.login')
                         ->withInput()
                         ->withErrors($validation);
         } else
@@ -104,7 +103,7 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard');
             } else
             {
-                return redirect()->route('login')
+                return redirect()->route('user.login')
                             ->withInput()
                             ->withErrors('Error in Email Address or Password.');
             }
@@ -114,7 +113,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login')
+        return redirect()->route('user.login')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
@@ -148,7 +147,7 @@ class AuthController extends Controller
 
             if($user->save()){
                 Auth::logout();
-                return redirect()->route('login')
+                return redirect()->route('user.login')
                             ->with('success','Your password changed successfully.');
             }else{
                 return redirect()->route('dashboard')
