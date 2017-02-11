@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'CreateBloodDonationTable' => $baseDir . '/database/migrations/2017_02_11_140055_create_blood_donation_table.php',
     'CreateCommitteeMembersTable' => $baseDir . '/database/migrations/2017_02_11_135856_create_committee_members_table.php',
     'CreateCommitteesTable' => $baseDir . '/database/migrations/2017_02_11_135836_create_committees_table.php',
@@ -14,6 +15,16 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateSectorsTable' => $baseDir . '/database/migrations/2017_02_11_140008_create_sectors_table.php',
     'CreateUserDetailsTable' => $baseDir . '/database/migrations/2017_02_11_135447_create_user_details_table.php',
+=======
+    'CreateBloodGroupsTable' => $baseDir . '/database/migrations/2017_02_11_151114_create_blood_groups_table.php',
+    'CreateComitteeMembersTable' => $baseDir . '/database/migrations/2016_12_04_043917_create_comittee_members_table.php',
+    'CreateCommitteesTable' => $baseDir . '/database/migrations/2016_11_07_163815_create_committees_table.php',
+    'CreateDepartmentsTable' => $baseDir . '/database/migrations/2017_02_11_150652_create_departments_table.php',
+    'CreateEducationTable' => $baseDir . '/database/migrations/2016_12_04_044514_create_education_table.php',
+    'CreateNoticeTable' => $baseDir . '/database/migrations/2016_12_04_044405_create_notice_table.php',
+    'CreateSectorsTable' => $baseDir . '/database/migrations/2016_12_04_044315_create_sectors_table.php',
+    'CreateUserDetailsTable' => $baseDir . '/database/migrations/2016_11_07_163751_create_user_details_table.php',
+>>>>>>> master
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'EntrustSetupTables' => $baseDir . '/database/migrations/2016_02_08_102834_entrust_setup_tables.php',

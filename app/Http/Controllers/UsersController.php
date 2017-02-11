@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use App\User;
+use App\UserDetail;
+use App\UserRole;
+use App\UserDetails;
+use App\Department;
+use App\BloodGroup;
 use Validator;
 use Auth;
 use Hash;
@@ -29,8 +35,18 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('auth.register')
-                    ->with('title', 'Register');
+        $depts = Department::lists('id','name');
+        $bloodGroups = BloodGroup::lists('id','name');
+        $boolean = [
+        '1' => 'Yes',
+        '2' => 'No',
+        ];
+
+
+        return view('user.register')
+                ->with('depts', $depts)
+                ->with('bloodGroups', $bloodGroups)
+                ->with('capability', $boolean);
     }
 
     /**

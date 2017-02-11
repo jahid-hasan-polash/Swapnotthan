@@ -36,8 +36,10 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
 	Route::get('/user/contact', array('as'=>'contact', 'uses' => 'PageController@contact'));
-	Route::get('/user/getInvolved', array('as'=>'getInvolved', 'uses' => 'MembersController@create'));
-	Route::post('/user/getInvolved/store', array('as'=>'user.getInvolved', 'uses'=>'MembersController@store'));
+
+	//Call to the create method of userController for register blade
+	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
+	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
 
 
 	// social login route
@@ -53,7 +55,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+	Route::get('admin', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
@@ -61,5 +63,8 @@ Route::group(array('middleware' => 'auth'), function()
 });
 */
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master

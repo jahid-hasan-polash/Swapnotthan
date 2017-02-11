@@ -389,6 +389,7 @@ class ComposerStaticInite57b559d628cbb1245e97d529ab89365
     );
 
     public static $classMap = array (
+<<<<<<< HEAD
         'CreateBloodDonationTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_140055_create_blood_donation_table.php',
         'CreateCommitteeMembersTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_135856_create_committee_members_table.php',
         'CreateCommitteesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_135836_create_committees_table.php',
@@ -397,6 +398,16 @@ class ComposerStaticInite57b559d628cbb1245e97d529ab89365
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateSectorsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_140008_create_sectors_table.php',
         'CreateUserDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_135447_create_user_details_table.php',
+=======
+        'CreateBloodGroupsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_151114_create_blood_groups_table.php',
+        'CreateComitteeMembersTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_043917_create_comittee_members_table.php',
+        'CreateCommitteesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_163815_create_committees_table.php',
+        'CreateDepartmentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_11_150652_create_departments_table.php',
+        'CreateEducationTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_044514_create_education_table.php',
+        'CreateNoticeTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_044405_create_notice_table.php',
+        'CreateSectorsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_044315_create_sectors_table.php',
+        'CreateUserDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_163751_create_user_details_table.php',
+>>>>>>> master
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'EntrustSetupTables' => __DIR__ . '/../..' . '/database/migrations/2016_02_08_102834_entrust_setup_tables.php',
