@@ -20,7 +20,8 @@ Route::group(['middleware' => 'guest'], function(){
 	
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
+	Route::get('user/create
+		', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
@@ -51,6 +52,9 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
+	/*Routes added by Nayem*/
+
+	
 
 });
 
