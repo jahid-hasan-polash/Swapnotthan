@@ -19,9 +19,13 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	
-	Route::controller('password', 'RemindersController');
+
+	//Route::controller('password', 'RemindersController');
+
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
+	
+
 
 	//Page routes
 	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
@@ -37,10 +41,6 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
 
 
-	// social login route
-	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
-
 });
 
 
@@ -50,7 +50,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-	Route::get('admin', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 

@@ -1216,8 +1216,8 @@
                 "time"
             ],
             "time": "2017-01-16 07:55:07"
-        },
-        {
+            },
+            {
             "name": "nikic/php-parser",
             "version": "v2.1.1",
             "source": {
@@ -3016,6 +3016,7 @@
                 "testing"
             ],
             "time": "2017-02-09 13:29:38"
+            "time": "2017-02-09T13:29:38+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
