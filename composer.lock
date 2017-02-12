@@ -3014,11 +3014,7 @@
                 "test double",
                 "testing"
             ],
-<<<<<<< HEAD
-            "time": "2017-02-09 13:29:38"
-=======
-            "time": "2016-12-19T14:50:55+00:00"
->>>>>>> master
+            "time": "2017-02-09T13:29:38+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

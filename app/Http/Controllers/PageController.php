@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\
+use App\OurMission;
+use App\News;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 

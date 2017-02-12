@@ -22,12 +22,9 @@ Route::group(['middleware' => 'guest'], function(){
 
 	//Route::controller('password', 'RemindersController');
 
-	Route::get('login', ['as'=>'user.login','uses' => 'Auth\AuthController@login']);
-	Route::post('login', array('as'=>'user.doLogin','uses' => 'Auth\AuthController@doLogin'));
-
-	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
+	
 
 
 	//Page routes
@@ -53,7 +50,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-	Route::get('admin', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 

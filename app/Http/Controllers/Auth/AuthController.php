@@ -72,6 +72,7 @@ class AuthController extends Controller
 
     public function doLogin(Request $request)
     {
+
         $rules = array
         (
                     'email'    => 'required',
@@ -86,10 +87,11 @@ class AuthController extends Controller
         if ($validation->fails())
         {
 
-            return redirect()->route('user.login')
+            return redirect()->route('login')
                         ->withInput()
                         ->withErrors($validation);
-        } else
+        }
+        else
         {
 
             $credentials = array
@@ -100,10 +102,12 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials))
             {
-                return redirect()->intended('dashboard');
-            } else
+                return view('dashboard')
+                    ->with('title','Dashboard')->with('user', Auth::user());
+            } 
+            else
             {
-                return redirect()->route('user.login')
+                return redirect()->route('login')
                             ->withInput()
                             ->withErrors('Error in Email Address or Password.');
             }
@@ -113,7 +117,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('user.login')
+        return redirect()->route('login')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
@@ -147,7 +151,7 @@ class AuthController extends Controller
 
             if($user->save()){
                 Auth::logout();
-                return redirect()->route('user.login')
+                return redirect()->route('login')
                             ->with('success','Your password changed successfully.');
             }else{
                 return redirect()->route('dashboard')

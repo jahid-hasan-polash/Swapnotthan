@@ -5,7 +5,7 @@
             @include('includes.alert')
 
                 <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
-                    {!! Form::open(array('route' => 'user.doLogin', 'method' => 'post','class' => 'signup-page')) !!}
+                    {!! Form::open(array('route' => 'login', 'method' => 'post','class' => 'signup-page')) !!}
 
                     	<div class="signup-header">
 							<h2 align='center'>Log In</h2>
