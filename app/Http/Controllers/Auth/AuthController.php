@@ -69,10 +69,12 @@ class AuthController extends Controller
         // return 'Auth Login Panel';
         return view('auth.login')
                     ->with('title', 'Login to Swapnotthan');
+        return view('user.login');
     }
 
     public function doLogin(Request $request)
     {
+
         $rules = array
         (
                     'email'    => 'required',
@@ -90,7 +92,8 @@ class AuthController extends Controller
             return redirect()->route('login')
                         ->withInput()
                         ->withErrors($validation);
-        } else
+        }
+        else
         {
 
             $credentials = array
@@ -102,14 +105,16 @@ class AuthController extends Controller
             if (Auth::attempt($credentials))
             {
                 return redirect()->intended('dashboard');
+
             } else
+
             {
                 return redirect()->route('login')
                             ->withInput()
                             ->withErrors('Error in Email Address or Password.');
             }
         }
-        return 'Do Login Executes';
+        //return 'Do Login Executes';
     }
 
     public function logout(){

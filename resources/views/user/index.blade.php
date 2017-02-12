@@ -51,7 +51,7 @@
 							<!-- Main Text -->
 							<div class="col-md-9">
 								<h2 style="color: #009973">Our Mission</h2>
-								<p>{!! $mission->description !!}</p>
+								
 								<a class="btn btn-success" href=#><!-- Read More page -->
 									Read More
 									<i class="fa-chevron-right"></i>

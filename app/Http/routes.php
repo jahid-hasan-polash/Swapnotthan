@@ -23,6 +23,12 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
+	//Route::controller('password', 'RemindersController');
+
+	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
+	
+
 	//Page routes
 	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
 	Route::get('/user/whatWeDo', array('as'=>'whatWeDo', 'uses' => 'PageController@whatWeDo'));
@@ -35,11 +41,6 @@ Route::group(['middleware' => 'guest'], function(){
 	//Call to the create method of userController for register blade
 	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
 	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
-
-
-	// social login route
-	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
 });
 
