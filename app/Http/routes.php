@@ -54,6 +54,20 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
+	/*News panel route start*/
+	
+	Route::get('news', ['as' => 'news', 'uses' => 'AdminController@newsShow']);
+	Route::get('/{id}/editNews',['as'=>'getEditNews','uses'=>'AdminController@editNews']);
+	Route::post('/{id}/editNews',['as'=>'postEditNews','uses'=>'AdminController@updateNews']);
+	Route::post('/createNews',['as'=>'createNews','uses'=>'AdminController@createNews']);
+	Route::post('/{id}/daleteNews',['as'=>'deleteNews','uses'=>'AdminController@destroyNews']);
+
+	/*Edit mission page route*/
+
+
+	Route::get('/{id}/editMission',['as'=>'editMission','uses'=>'AdminController@editMission']);
+	Route::post('/{id}/updateMission',['as'=>'updateMission','uses'=>'AdminController@updateMission']);
+
 
 });
 
