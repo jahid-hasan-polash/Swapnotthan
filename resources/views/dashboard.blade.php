@@ -24,7 +24,7 @@
         		<ol class="" style="font-size: 30px;">
         			<li><a class="btn btn-success" href="{{route('news')}}">Create/Update News Panel</a></li>
         			<li><a class="btn btn-success" href="{{route('editMission','1')}}">Edit Mission</a></li>
-        			<li><a class="btn btn-success" href="">Change Slider Images</a></li>
+        			<li><a class="btn btn-success" href="{{route('changeSlider')}}">Change Slider Images</a></li>
         			<li><a class="btn btn-success" href="">Create/Update Notice Panel</a></li>
         		</ol>
         	</div>

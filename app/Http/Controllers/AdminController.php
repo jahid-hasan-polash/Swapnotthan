@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\News;
 use App\OurMission;
 use Input;
+use File;
+use App\Slider;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -82,6 +84,63 @@ class AdminController extends Controller
                       $data=OurMission::all();
                       return redirect('dashboard');
                   }
+        }
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    //Slider images section
+
+    public function sliderImages()
+        {
+            $data=Slider::all();
+            return view('slider.changeSlider')->with('data',$data);
+
+        }
+
+    public function uploadImage($id)
+        {
+            $data=Slider::find($id);
+            return view('slider.uploadImage')->with('data',$data);
+
+        }
+
+    public function storeImage(Request $request)
+        {
+
+            //validation
+
+            $this->validate($request, [
+                'imageTitle' => 'required',
+                'image' => 'required'
+            ]);
+
+            $id=$request->input('id');
+
+            //Deleting the old image
+
+            $data=Slider::find($id);
+            File::delete('img/slider/'.$data->image_link);
+
+            //adding new image
+
+            $image = $data;
+
+            $image->image_title = $request->imageTitle;
+
+            if($request->hasFile('image')) {
+                $file = Input::file('image');
+                
+                $name = 'Image_' .$file->getClientOriginalName();
+                
+                $image->image_link = $name;
+
+                $file->move(public_path().'/img/slider/', $name);
+            }
+
+            $image->save();
+
+            return view('dashboard');
+
         }
 
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\OurMission;
 use App\News;
+use App\Slider;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,8 +20,16 @@ class PageController extends Controller
     {
         $mission = OurMission::first();
         $newses = News::orderBy('created_at','desc')->take(5)->get();
+        $slider1 = Slider::find(1);
+        $slider2 = Slider::find(2);
+        $slider3 = Slider::find(3);
+        $slider4 = Slider::find(4);
         return view('user.index')
                     ->with('mission',$mission)
+                    ->with('slider1',$slider1)
+                    ->with('slider2',$slider2)
+                    ->with('slider3',$slider3)
+                    ->with('slider4',$slider4)
                     ->with('newses',$newses);
     }
 

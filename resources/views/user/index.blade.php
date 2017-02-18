@@ -19,19 +19,25 @@
 						<li data-target="#carousel-example" data-slide-to="3"></li>
 					</ol>
 					<!-- End Carousel Indicators -->
+					<style type="text/css">
+						.item img{
+							width: 100%;
+							max-height: 70vh;
+						}
+					</style>
 					<!-- Carousel Images -->
 					<div class="carousel-inner">
 						<div class="item active">
-							{!! Html::image('asset/img/slideshow/slide1.jpg') !!}
+							<img class="img-responsive" src="/img/slider/{{$slider1->image_link}}">
 						</div>
 						<div class="item">
-							{!! Html::image('asset/img/slideshow/slide2.jpg') !!}
+							<img class="img-responsive" src="/img/slider/{{$slider2->image_link}}">
 						</div>
 						<div class="item">
-							{!! Html::image('asset/img/slideshow/slide3.jpg') !!}
+							<img class="img-responsive" src="/img/slider/{{$slider3->image_link}}">
 						</div>
 						<div class="item">
-							{!! Html::image('asset/img/slideshow/slide4.jpg') !!}
+							<img class="img-responsive" src="/img/slider/{{$slider4->image_link}}">
 						</div>
 					</div>
 					<!-- End Carousel Images -->

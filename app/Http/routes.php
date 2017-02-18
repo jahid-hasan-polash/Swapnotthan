@@ -68,6 +68,12 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('/{id}/editMission',['as'=>'editMission','uses'=>'AdminController@editMission']);
 	Route::post('/{id}/updateMission',['as'=>'updateMission','uses'=>'AdminController@updateMission']);
 
+	//Slider images routes
+
+	Route::get ('/changeSlider',['as'=>'changeSlider','uses'=>'AdminController@sliderImages']);
+	Route::get ('/{id}/uploadImage',['as'=>'uploadImage','uses'=>'AdminController@uploadImage']);
+	Route::post ('/{id}/uploadImage',['as'=>'uploadImage','uses'=>'AdminController@storeImage']);
+
 
 });
 
