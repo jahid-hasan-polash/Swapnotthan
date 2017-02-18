@@ -35,27 +35,33 @@ class PageController extends Controller
 
     //These are functions for routes
     public function whatWeDo(){
+
         return view('user.whatWeDo');
     }
 
     public function contact(){
+
         return view('user.contact');
     }
 
     public function members(){
+
         return view('user.membersDemo');
     }
 
     public function executive(){
+
         return view('user.membersDemo');
     }
 
 
     public function showMission(){
+
         return view('user.showMission');
     }
 
     public function showSectorDetails(){
+        
         return view('user.sector');
     }
 
