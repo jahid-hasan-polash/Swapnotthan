@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -77,7 +76,4 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 });
-
-
-
 
