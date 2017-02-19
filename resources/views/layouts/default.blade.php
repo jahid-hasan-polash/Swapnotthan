@@ -5,10 +5,6 @@
 
 <body>
 
-@include('includes.sideBar')
-
-
-@include('includes.topMenu')
 
 
 <div class="wraper container-fluid">
@@ -18,7 +14,7 @@
 </div>
 
 
-@include('includes.footer')
+
 
 </body>
 </html>
