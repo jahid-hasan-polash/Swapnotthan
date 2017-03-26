@@ -25,7 +25,8 @@
         			<li><a class="btn btn-success" href="{{route('news')}}">Create/Update News Panel</a></li>
         			<li><a class="btn btn-success" href="{{route('editMission','1')}}">Edit Mission</a></li>
         			<li><a class="btn btn-success" href="{{route('changeSlider')}}">Change Slider Images</a></li>
-        			<li><a class="btn btn-success" href="">Create/Update Notice Panel</a></li>
+                    <li><a class="btn btn-success" href="">Create/Update Notice Panel</a></li>
+        			<li><a class="btn btn-success" href="{{route('updateGallery')}}">Update Gallery Images</a></li>
         		</ol>
         	</div>
         	<a class="btn btn-danger log-out" href="{{route('logout')}}">Log Out</a>
