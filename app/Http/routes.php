@@ -74,12 +74,15 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get ('/{id}/uploadImage',['as'=>'uploadImage','uses'=>'AdminController@uploadImage']);
 	Route::post ('/{id}/uploadImage',['as'=>'uploadImage','uses'=>'AdminController@storeImage']);
 
+<<<<<<< HEAD
+=======
 	//Gallery image routes
 
 	Route::get ('/updateGallery',['as'=>'updateGallery','uses'=>'AdminController@updateGallery']);
 	Route::get ('/{id}/uploadGalleryImage',['as'=>'uploadGalleryImage','uses'=>'AdminController@uploadGalleryImage']);
 	Route::post ('/{id}/uploadGalleryImage',['as'=>'uploadGalleryImage','uses'=>'AdminController@storeGalleryImage']);
 
+>>>>>>> Nayeem
 
 });
 

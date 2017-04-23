@@ -1,6 +1,10 @@
 @extends('layouts.default')
     @section('content')
         @include('includes.alert')
+<<<<<<< HEAD
+        <h1>Welcome :)</h1>
+=======
+>>>>>>> Nayeem
         <h1>Welcome to swapnotthan admin panel :</h1>
         <div class="container">
         <style type="text/css">
@@ -25,8 +29,12 @@
         			<li><a class="btn btn-success" href="{{route('news')}}">Create/Update News Panel</a></li>
         			<li><a class="btn btn-success" href="{{route('editMission','1')}}">Edit Mission</a></li>
         			<li><a class="btn btn-success" href="{{route('changeSlider')}}">Change Slider Images</a></li>
+<<<<<<< HEAD
+        			<li><a class="btn btn-success" href="">Create/Update Notice Panel</a></li>
+=======
                     <li><a class="btn btn-success" href="">Create/Update Notice Panel</a></li>
         			<li><a class="btn btn-success" href="{{route('updateGallery')}}">Update Gallery Images</a></li>
+>>>>>>> Nayeem
         		</ol>
         	</div>
         	<a class="btn btn-danger log-out" href="{{route('logout')}}">Log Out</a>
