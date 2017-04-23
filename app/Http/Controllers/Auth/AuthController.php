@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Gallery;
 use Validator;
 use Auth;
 use Hash;
@@ -67,7 +68,8 @@ class AuthController extends Controller
     }
     public function login(){
         // return 'Auth Login Panel';
-        return view('user.login');
+        $gallery = Gallery::all();
+        return view('user.login')->with('gallery',$gallery);
     }
 
     public function doLogin(Request $request)

@@ -5,10 +5,13 @@
 
 <body>
 
+<<<<<<< HEAD
 @include('includes.sideBar')
 
 
 @include('includes.topMenu')
+=======
+>>>>>>> Nayeem
 
 
 <div class="wraper container-fluid">
@@ -18,6 +21,11 @@
 </div>
 
 
+<<<<<<< HEAD
 @include('includes.footer')
+=======
+
+
+>>>>>>> Nayeem
 </body>
 </html>

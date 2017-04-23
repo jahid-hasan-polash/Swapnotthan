@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\News;
 use App\OurMission;
 use Input;
+use App\Gallery;
 use File;
 use App\Slider;
 use App\Http\Requests;
@@ -142,5 +143,57 @@ class AdminController extends Controller
             return view('dashboard');
 
         }
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        //Gallery controllers
+
+        public function updateGallery(){
+            $data=Gallery::all();
+            return view('gallery.galleryAdmin')->with('data',$data);
+        }
+
+        public function uploadGalleryImage($id){
+            $data=Gallery::find($id);
+            return view('gallery.uploadGalleryImage')->with('data',$data);
+        }
+
+        public function storeGalleryImage(Request $request)
+            {
+
+                //validation
+
+                $this->validate($request, [
+                    'imageTitle' => 'required',
+                    'image' => 'required'
+                ]);
+
+                $id=$request->input('id');
+
+                //Deleting the old image
+
+                $data=Gallery::find($id);
+                File::delete('img/gallery/'.$data->image_link);
+
+                //adding new image
+
+                $image = $data;
+
+                $image->image_title = $request->imageTitle;
+
+                if($request->hasFile('image')) {
+                    $file = Input::file('image');
+                    
+                    $name = 'Image_' .$file->getClientOriginalName();
+                    
+                    $image->image_link = $name;
+
+                    $file->move(public_path().'/img/gallery/', $name);
+                }
+
+                $image->save();
+
+                return view('dashboard');
+
+            }
 
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\OurMission;
 use App\News;
 use App\Slider;
+use App\Gallery;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -24,39 +25,54 @@ class PageController extends Controller
         $slider2 = Slider::find(2);
         $slider3 = Slider::find(3);
         $slider4 = Slider::find(4);
+        $gallery = Gallery::all();
         return view('user.index')
                     ->with('mission',$mission)
                     ->with('slider1',$slider1)
                     ->with('slider2',$slider2)
                     ->with('slider3',$slider3)
                     ->with('slider4',$slider4)
-                    ->with('newses',$newses);
+                    ->with('newses',$newses)
+                    ->with('gallery',$gallery);
     }
 
     //These are functions for routes
     public function whatWeDo(){
-        return view('user.whatWeDo');
+        
+        $gallery = Gallery::all();
+
+        return view('user.whatWeDo')->with('gallery',$gallery);
     }
 
     public function contact(){
-        return view('user.contact');
+
+        $gallery = Gallery::all();
+        return view('user.contact')->with('gallery',$gallery);
     }
 
     public function members(){
-        return view('user.membersDemo');
+
+        $gallery = Gallery::all();
+        return view('user.membersDemo')->with('gallery',$gallery);
     }
 
     public function executive(){
-        return view('user.membersDemo');
+
+        $gallery = Gallery::all();
+        return view('user.membersDemo')->with('gallery',$gallery);
     }
 
 
     public function showMission(){
-        return view('user.showMission');
+
+        $gallery = Gallery::all();
+        return view('user.showMission')->with('gallery',$gallery);
     }
 
     public function showSectorDetails(){
-        return view('user.sector');
+
+        $gallery = Gallery::all();
+        return view('user.sector')->with('gallery',$gallery);
     }
 
     public function showNewsDetails(){
