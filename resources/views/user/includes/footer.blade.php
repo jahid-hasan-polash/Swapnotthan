@@ -1,5 +1,19 @@
 <!-- === END CONTENT === -->
 	<!-- === BEGIN FOOTER === -->
+
+
+	<?php 
+		$image = array();
+		$i=1;
+		foreach ($gallery as $photo)
+		    $image[$i++]=$photo->image_link;
+	 ?>
+	 <style type="text/css">
+	 	.fixed-len-thum img{
+	 		height: 50px;
+	 		width: 50px;
+	 	}
+	 </style>
 	<div id="base">
 		<div class="container padding-vert-30">
 			<div class="row">
@@ -7,74 +21,78 @@
 				<div class="col-md-3 margin-bottom-20">
 					<div class="thumbs-gallery">
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image1.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[1] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image1.jpg" alt="image1.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image1.jpg") !!}
+							<img src="/img/gallery/{{ $image[1] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image2.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[2] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image2.jpg" alt="image2.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image2.jpg") !!}
+							<img src="/img/gallery/{{ $image[2] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image3.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[3] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image3.jpg" alt="image3.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image3.jpg") !!}
+							<img src="/img/gallery/{{ $image[3] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image4.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[4] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image4.jpg" alt="image4.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image4.jpg") !!}
+							<img src="/img/gallery/{{ $image[4] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image6.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[5] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image6.jpg" alt="image6.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image6.jpg") !!}
+							<img src="/img/gallery/{{ $image[5] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image7.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[6] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image7.jpg" alt="image7.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image7.jpg") !!}
+							<img src="/img/gallery/{{ $image[6] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image8.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[7] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image8.jpg" alt="image8.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image8.jpg") !!}
+							<img src="/img/gallery/{{ $image[7] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image9.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[8] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image9.jpg" alt="image9.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image9.jpg") !!}
+							<img src="/img/gallery/{{ $image[8] }}">
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image92.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[9] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image92.jpg" alt="image92.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image92.jpg") !!}
+							<img src="/img/gallery/{{ $image[9] }}">
+
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image94.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[10] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image94.jpg" alt="image94.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image94.jpg") !!}
+							<img src="/img/gallery/{{ $image[10] }}">
+
 						<i></i></a>
 
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image95.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[11] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image95.jpg" alt="image95.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image95.jpg") !!}
+							<img src="/img/gallery/{{ $image[11] }}">
+
 						<i></i></a>
 
-						<a class="thumbBox" rel="lightbox-thumbs" href="asset/img/thumbsgallery/image96.jpg">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[12] }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image96.jpg" alt="image96.jpg"> -->
-							{!! Html::image("asset/img/thumbsgallery/thumbs/image96.jpg") !!}
+							<img src="/img/gallery/{{ $image[12] }}">
+
 						<i></i></a>
 
 						</div>			<div class="clearfix"></div>
