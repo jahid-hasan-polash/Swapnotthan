@@ -33,15 +33,25 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
 	Route::get('/user/contact', array('as'=>'contact', 'uses' => 'PageController@contact'));
+
 	Route::get('/user/news/{id}/', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
 	Route::get('/user/sector/{id}/', array('as'=>'sector.show', 'uses' => 'PageController@showSectorDetails'));
 	Route::get('/user/mission/', array('as'=>'mission.show', 'uses' => 'PageController@showMission'));
+
+	Route::get('/user/donate', array('as'=>'donate', 'uses' => 'PageController@showDonatePage'));
+	Route::get('/news/{id}', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
+
 	
 
 	//Call to the create method of userController for register blade
 	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
 	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));
 
+	//Sending a mail
+	//Route::post('/user/contact', array('as'=>'contact', 'uses' => 'MailController@sendMail'));
+	Route::post('/user/contact',['as'=>'contact','uses'=>'MailController@sendMail']);
+	/*Route::get('/user/testMail',['as'=>'testMail','uses'=>'MailController@testMail']);
+	Route::post('/user/testMail',['as'=>'testMail','uses'=>'MailController@sendMail']);*/
 
 });
 
