@@ -8,25 +8,28 @@
 				<div class="headline"><h2 style="color: #009973">Send Us a Message</h2></div>
 				
 				<!-- Contact Form -->
-				<form>
+				<form method="post" action="{{ route('contact') }}">
+
+					<input type="hidden" name="_token" value="{{csrf_token()}}">
+
 					<label>Name</label>
 					<div class="row margin-bottom-20">
 						<div class="col-md-6 col-md-offset-0">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" name="username">
 						</div>
 					</div>
 					
 					<label>Email <span class="color-red">*</span></label>
 					<div class="row margin-bottom-20">
 						<div class="col-md-6 col-md-offset-0">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" name="email">
 						</div>
 					</div>
 					
 					<label>Message</label>
 					<div class="row margin-bottom-20">
 						<div class="col-md-8 col-md-offset-0">
-							<textarea rows="8" class="form-control"></textarea>
+							<textarea rows="8" class="form-control" name="message"></textarea>
 						</div>
 					</div>
 					

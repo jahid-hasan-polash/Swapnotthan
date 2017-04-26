@@ -13,6 +13,7 @@ use App\BloodGroup;
 use Validator;
 use Auth;
 use Hash;
+use App\Gallery;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -42,10 +43,12 @@ class UsersController extends Controller
         '2' => 'No',
         ];
 
+        $gallery = Gallery::all();
 
         return view('user.register')
                 ->with('depts', $depts)
                 ->with('bloodGroups', $bloodGroups)
+                ->with('gallery',$gallery)
                 ->with('capability', $boolean);
     }
 

@@ -84,9 +84,10 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showDonatePage()
     {
-        //
+        $gallery = Gallery::all();
+        return view('user.donate')->with('gallery',$gallery);
     }
 
     /**
