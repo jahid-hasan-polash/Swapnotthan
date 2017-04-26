@@ -33,8 +33,14 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
 	Route::get('/user/contact', array('as'=>'contact', 'uses' => 'PageController@contact'));
+
+	Route::get('/user/news/{id}/', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
+	Route::get('/user/sector/{id}/', array('as'=>'sector.show', 'uses' => 'PageController@showSectorDetails'));
+	Route::get('/user/mission/', array('as'=>'mission.show', 'uses' => 'PageController@showMission'));
+
 	Route::get('/user/donate', array('as'=>'donate', 'uses' => 'PageController@showDonatePage'));
 	Route::get('/news/{id}', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
+
 	
 
 	//Call to the create method of userController for register blade

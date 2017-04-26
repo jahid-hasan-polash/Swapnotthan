@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(EntrustTableSeeder::class);
+        $this->call(HomepageTableSeeder::class);
         $this->call(GalleryTableSeeder::class);
+        $this->call(SectorTableSeeder::class);
+        $this->call(ImageTableSeeder::class);
+        
 
         if (env('DB_CONNECTION') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
