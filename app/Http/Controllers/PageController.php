@@ -7,6 +7,10 @@ use App\OurMission;
 use App\News;
 use App\Slider;
 use App\Gallery;
+use App\Sector;
+use App\Image;
+use App\SectorImage;
+use App\NewsImage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -21,11 +25,14 @@ class PageController extends Controller
     {
         $mission = OurMission::first();
         $newses = News::orderBy('created_at','desc')->take(5)->get();
+        $sectors = Sector::all();
         $slider1 = Slider::find(1);
         $slider2 = Slider::find(2);
         $slider3 = Slider::find(3);
         $slider4 = Slider::find(4);
-        $gallery = Gallery::all();
+        $gallery = Gallery::all();//Gallary::take(12)->get();
+
+
         return view('user.index')
                     ->with('mission',$mission)
                     ->with('slider1',$slider1)
@@ -33,50 +40,75 @@ class PageController extends Controller
                     ->with('slider3',$slider3)
                     ->with('slider4',$slider4)
                     ->with('newses',$newses)
-                    ->with('gallery',$gallery);
+                    ->with('gallery',$gallery)
+                    ->with('sectors',$sectors);
     }
 
     //These are functions for routes
     public function whatWeDo(){
         
+        $sectors = Sector::all();
         $gallery = Gallery::all();
 
-        return view('user.whatWeDo')->with('gallery',$gallery);
+        return view('user.whatWeDo')
+                    ->with('gallery',$gallery)
+                    ->with('sectors',$sectors);
     }
 
     public function contact(){
 
         $gallery = Gallery::all();
-        return view('user.contact')->with('gallery',$gallery);
+        return view('user.contact')
+                    ->with('gallery',$gallery);
     }
 
     public function members(){
 
         $gallery = Gallery::all();
-        return view('user.membersDemo')->with('gallery',$gallery);
+        return view('user.membersDemo')
+                    ->with('gallery',$gallery);
     }
 
     public function executive(){
 
+
         $gallery = Gallery::all();
-        return view('user.membersDemo')->with('gallery',$gallery);
+        return view('user.membersDemo')
+                    ->with('gallery',$gallery);
     }
 
 
     public function showMission(){
 
+        $mission = OurMission::orderBy('created_at','desc')->first();
         $gallery = Gallery::all();
-        return view('user.showMission')->with('gallery',$gallery);
+        return view('user.showMission')
+                    ->with('gallery',$gallery)
+                    ->with('mission',$mission);
     }
 
-    public function showSectorDetails(){
+    public function showSectorDetails($id){
 
+        $sector = Sector::find($id);
+        $image = Image::find(SectorImage::where('sector_id',$id)->first()->image_id);
         $gallery = Gallery::all();
-        return view('user.sector')->with('gallery',$gallery);
+        return view('user.sector')
+                    ->with('gallery',$gallery)
+                    ->with('sector',$sector)
+                    ->with('image',$image);
     }
 
-    public function showNewsDetails(){
+    public function showNewsDetails($id){
+        $newses = News::orderBy('created_at','desc')->take(5)->get();
+        $news = News::find($id);
+        $image = Image::find(NewsImage::where('news_id',$id)->first()->image_id);
+        $gallery = Gallery::all();
 
+        return view('user.news')
+                    ->with('news',$news)
+                    ->with('newsAll',$newses)
+                    ->with('gallery',$gallery)
+                    ->with('image',$image);
     }
 
     /**
