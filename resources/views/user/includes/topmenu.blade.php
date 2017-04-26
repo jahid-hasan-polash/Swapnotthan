@@ -22,7 +22,7 @@
 						<li><span>Get Involved</span>
 							<ul>
 								<li><a href="{!! URL::route('register') !!}">As a Member</a></li>
-								<li><a href="#">Donate</a></li>
+								<li><a href="{!! URL::route('donate') !!}">Donate</a></li>
 							</ul>
 						</li>
 						<li><a href="{!! URL::route('contact') !!}" >Contact Us</a></li>
