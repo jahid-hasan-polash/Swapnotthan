@@ -25,7 +25,7 @@
 					<style type="text/css">
 						.item img{
 							width: 100%;
-							max-height: 70vh;
+							height: 70vh;
 						}
 					</style>
 					<!-- Carousel Images -->
