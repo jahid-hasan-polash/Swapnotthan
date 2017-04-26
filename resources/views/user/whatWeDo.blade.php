@@ -3,26 +3,15 @@
 	<div id="content" class="container">
 			<div class="row margin-vert-30">
 				<!-- Main Column -->
+				@foreach($sectors as $sector)
 				<div class="col-md-12">
-					<h2>Education</h2>
-					<p>There will be education description</p>
+					<h2 class="text-center">{!! $sector->title !!}</h2><br>
+					<!-- image should be added -->
+					<p>{!! $sector->description !!}</p>
 					
 				</div>
 				<hr>
-				
-				<div class="col-md-12">
-					<h2>Blood Donation</h2>
-					<p>There will be blood donation description</p>
-					
-				</div>
-				<hr>
-
-				<div class="col-md-12">
-					<h2>Orphanage</h2>
-					<p>Orphanage description will be here</p>
-					
-				</div>
-				<hr>
+				@endforeach
 				<!-- End Main Column -->
 			</div>
 		</div>

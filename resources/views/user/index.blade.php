@@ -1,5 +1,8 @@
 @extends('layouts.userDefault')
 @section('content')
+<?php 
+	$subStringForOurMission = substr($mission->description,0,1500).'....';
+?>
 	<div class="container">
 			<div class="row margin-top-30">
 				<div class="col-md-12 text-center">
@@ -57,8 +60,8 @@
 							<!-- Main Text -->
 							<div class="col-md-9">
 								<h2 style="color: #009973">Our Mission</h2>
-								
-								<a class="btn btn-success" href=#><!-- Read More page -->
+								<p class="margin-bottom-30">{!! $subStringForOurMission !!}</p>
+								<a class="btn btn-success" href="{!! URL::route( 'mission.show' ) !!} "><!-- Read More page -->
 									Read More
 									<i class="fa-chevron-right"></i>
 								</a>
@@ -69,7 +72,7 @@
 								<h2 class="margin-bottom-10 " style="color: #009973">Latest News</h2>
 								<ul class="menu">
 									@foreach($newses as $news)
-										<a class="fa-angle-right" href="{{!! URL::route( 'news.show', ['id',$news->id]) !!}} ">{{!! $news->title !!}}</a>
+										<a class="fa-angle-right" href="{!! URL::route( 'news.show', [$news->id]) !!} ">{!! $news->title !!}</a>
 									@endforeach
 								</ul>
 							</div>
@@ -81,25 +84,26 @@
 							<h2 style="color: #009973">Working Sectors</h2>
 							<!-- for each campaign -->
 
-							<!-- foreach($sectors as $sector) -->
+							@foreach($sectors as $sector)
 							<div class="portfolio-item col-sm-4 animate fadeIn">
 								<div class="image-hover">
-									<a href=#></a>
+									<h3 class="margin-top-20" style="color: #009973; margin-bottom: 20px;"><a href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">{!! $sector->title !!}</a></h3>
+									
 										<figure>
-											<img src="asset/img/frontpage/filler1.jpg" alt="image1">
+											<img src="/img/SectorImages/image{!! $sector->id !!}.jpg">
 											<div class="overlay">
-												<a class="expand" href=#>Image Link</a>
+												<a class="expand" href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">Image Link</a>
 											</div>
 										</figure>
-										<h3 class="margin-top-20" style="color: #009973"></h3>
-										<p class="margin-top-10 margin-bottom-20"></p>
+										
+										<p class="margin-top-10 margin-bottom-20">{!! substr($sector->description,0,50).'...' !!}</p>
 										<div class="btn btn-danger">
-											<a class="info" href=#>Read more</a>
+											<a class="info" href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">Read more</a>
 										</div>
 									</a>
 								</div>
 							</div>
-							<!-- endforeach -->
+							@endforeach
 
 
 				</div>

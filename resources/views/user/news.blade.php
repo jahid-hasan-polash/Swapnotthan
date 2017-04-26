@@ -6,6 +6,8 @@
 				<!-- Main Column -->
 				<div class="col-md-9">
 					<h2>{!!  $news->title  !!}</h2><br>
+					<!-- News Image will be here -->
+					<img src="\img\images\{!! $image->image_title !!}">
 					<p>{!!  $news->description  !!}</p>
 				</div>
 				<!-- End Main Column -->
@@ -17,21 +19,17 @@
 							<h3 class="panel-title">Recent News</h3>
 						</div>
 						@foreach($newsAll as $news_link)
-						@if($news_link->id == $news->id)
 
+						@if($news_link->id == $news->id)
+						<!-- do nothing -->
 						@else
 						<div class="panel-body">
 							<ul class="posts-list margin-top-10">
 								<li>
 									<div class="recent-post">
-										<a href="#">
-											{!! Html::image('asset/img/blog/thumbs/thumb1.jpg','thumb1',array('class'=>'pull-left')) !!}
-										</a>
-										<a href="{!! URL::route('newsDetails',$news_link->id) !!}" class="posts-list-title">{!! $news_link->title !!}</a>
+										<a href="{!! URL::route('news.show',$news_link->id) !!}" class="posts-list-title">{!! $news_link->title !!}</a>
 										<br>
-										<span class="recent-post-date">
-										{!! $news_link->created_at !!}
-										</span>
+			
 									</div>
 									<div class="clearfix"></div>
 								</li>

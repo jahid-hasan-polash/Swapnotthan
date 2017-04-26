@@ -5,7 +5,7 @@
 				<!-- Main Column -->
 				<div class="col-md-12">
 					<h2>Our Mission</h2>
-					{{ $mission }}
+					{!! $mission->description !!}
 				</div>
 				<!-- End Main Column -->
 			</div>
