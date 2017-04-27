@@ -10,6 +10,7 @@ use App\UserRole;
 use App\UserDetails;
 use App\Department;
 use App\BloodGroup;
+use App\RoleUser;
 use Validator;
 use Auth;
 use Hash;
@@ -99,8 +100,13 @@ class UsersController extends Controller
                 $detail->ex_curr_activities = $data['ex_curr_activities'];
                 $detail->why_to_be_swapnotthanian = $data['why_to_be_swapnotthanian'];
                 $detail->sector_to_work_in = $data['sector_to_work_in'];
-
                 $detail->save();
+                
+                //role of the new user set
+                $userRole = new RoleUser;
+                $userRole->user_id = $user->id;
+                $userRole->role_id = 2;
+                $userRole->save();
 
                 Auth::logout();
                 return redirect()->route('login')
@@ -121,13 +127,9 @@ class UsersController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        $details = UserDetail::find($user->id);
-        //$department = Department::find($details->department_id);
         return view('auth.profile')
                     ->with('title', 'Profile')
-                    ->with('user',$user)
-                    ->with('details',$details);
-                    //->with('department',$department);
+                    ->with('user',$user);
     }
     /**
      * Display the specified resource.

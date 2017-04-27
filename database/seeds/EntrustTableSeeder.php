@@ -19,7 +19,12 @@ class EntrustTableSeeder extends Seeder
         $adminUser->attachRole($admin);
         $getAllusers = User::all();
         foreach ($getAllusers as $person) {
-            $person->attachRole($user);
+            if($person->id == 1){
+                //do nothing
+            } else {
+                $person->attachRole($user);
+            }
+            
         }
     }
 }

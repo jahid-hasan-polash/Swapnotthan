@@ -28,9 +28,9 @@
                             <td class="text-center">
                                 <a class="btn btn-success" href="{!! route('members.edit',$member->id) !!}">Make Executive</a>
                             </td>
-                            <td class="text-center">
+                            <!-- <td class="text-center">
                                 <a class="btn btn-danger" href="{!! route('members.makeAdmin',$member->id) !!}">Make Admin</a>
-                            </td>
+                            </td> -->
 
                           </tr>
                           @endforeach

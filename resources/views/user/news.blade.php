@@ -7,7 +7,7 @@
 				<div class="col-md-9">
 					<h2>{!!  $news->title  !!}</h2><br>
 					<!-- News Image will be here -->
-					<img src="\img\images\{!! $image->image_title !!}">
+					<img src="\img\images\{!! $news->newsImage->image->image_title !!}">
 					<p>{!!  $news->description  !!}</p>
 				</div>
 				<!-- End Main Column -->

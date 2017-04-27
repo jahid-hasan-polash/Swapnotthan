@@ -64,9 +64,11 @@ class AdminController extends Controller
 //faulty function
     public function makeAdmin($id){
 
-        $user = RoleUser::where('user_id',$id)->first();
-        $user->role_id = 1;
-        if($user->save()){
+        $user = User::find($id);
+        $roleuser = RoleUser::find($user->id);
+        //return $roleuser->role_id;
+        $roleuser->role_id = 1;
+        if($roleuser->save()){
             return redirect('dashboard')->with('success','You Have made an admin successfully.');
         } else {
             return redirect('dashboard')->with('error','Something went wrong!!');

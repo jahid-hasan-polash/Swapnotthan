@@ -3,9 +3,9 @@
 
             <!-- brand -->
             <div class="logo">
-                <a href="#" class="logo-expanded">
+                <a href="{!! route('dashboard') !!}" class="logo-expanded">
                     <i class="ion-social-buffer"></i>
-                    <span href="{!!route('dashboard')!!}" class="nav-label">Swapnotthan<!-- {!! Config::get('customConfig.names.siteName')!!} --></span>
+                    <span href="{!! route('dashboard') !!}" class="nav-label">Swapnotthan<!-- {!! Config::get('customConfig.names.siteName')!!} --></span>
 
                 </a>
             </div>
@@ -29,11 +29,14 @@
                         </ul>
                     </li>
 
+                    <li class="has-submenu"><a href="{!! route('editMission','1') !!}"><i class="ion-compose"></i> <span class="nav-label">Edit Mission</span></a>
+                    </li>
 
                     <li class="has-submenu"><a href="#"><i class="ion-compose"></i> <span class="nav-label">News Panel</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">Create</a></li>
-                            <li><a href="#">Update</a></li>
+                            
+                            <li><a href="{!! route('news') !!}">Create</a></li>
+                            <li><a href="{!! route('news') !!}">Update</a></li>
 
                         </ul>
                     </li>
@@ -50,8 +53,9 @@
                     <!-- not done yet -->
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Notice Panel</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="{!! route('news') !!}">Create</a></li>
-                            <li><a href="{!! route('news') !!}">Update</a></li>
+
+                            <li><a href="#">Create</a></li>
+                            <li><a href="#">Update</a></li>
 
                         </ul>
                     </li>
