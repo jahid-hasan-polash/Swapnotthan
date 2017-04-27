@@ -5,7 +5,7 @@
             <div class="logo">
                 <a href="#" class="logo-expanded">
                     <i class="ion-social-buffer"></i>
-                    <span href="{!!route('dashboard')!!}" class="nav-label">{!! Config::get('customConfig.names.siteName')!!}</span>
+                    <span href="{!!route('dashboard')!!}" class="nav-label">Swapnotthan<!-- {!! Config::get('customConfig.names.siteName')!!} --></span>
 
                 </a>
             </div>
@@ -16,63 +16,43 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">UI Elements</span></a>
+                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Welcome</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
                                 <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('change-password') !!}">
-                                <a href="{!!  URL::to( 'change-password') !!}">Password Change</a>
+                            <li class="{!! Menu::isActiveURL('admin/members') !!}">
+                                <a href="{!!  route('members') !!}">Members</a>
                             </li>
                         </ul>
                     </li>
 
 
-
-
-                    <li class="has-submenu"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Forms</span></a>
+                    <li class="has-submenu"><a href="#"><i class="ion-compose"></i> <span class="nav-label">News Panel</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">General Elements</a></li>
-                            <li><a href="#">Form Validation</a></li>
+                            <li><a href="#">Create</a></li>
+                            <li><a href="#">Update</a></li>
 
                         </ul>
                     </li>
 
 
-                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
+                    <li class="has-submenu"><a href="#"><i class="ion-stats-bars"></i> <span class="nav-label">Update Images</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">Basic Tables</a></li>
-                            <li><a href="#">Data Table</a></li>
+                            <li><a href="{!! route('changeSlider') !!}">Slider Images</a></li>
+                            <li><a href="{!! route('updateGallery') !!}">Gallery Images</a></li>
 
                         </ul>
                     </li>
 
-
-                    <li class="has-submenu"><a href="#"><i class="ion-stats-bars"></i> <span class="nav-label">Charts</span><span class="badge bg-purple">1</span></a>
+                    <!-- not done yet -->
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Notice Panel</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">chart</a></li>
-                            <li><a href="#">Morris</a></li>
+                            <li><a href="{!! route('news') !!}">Create</a></li>
+                            <li><a href="{!! route('news') !!}">Update</a></li>
 
-                        </ul>
-                    </li>
-
-
-                    <li class="has-submenu"><a href="#"><i class="ion-email"></i> <span class="nav-label">Mail</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Inbox</a></li>
-                            <li><a href="#">Compose Mail</a></li>
-                            <li><a href="#">View Mail</a></li>
-
-                        </ul>
-                    </li>
-
-
-                    <li class="has-submenu"><a href="#"><i class="ion-location"></i> <span class="nav-label">Maps</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="gmap.html"> Google Map</a></li>
-                            <li><a href="vector-map.html"> Vector Map</a></li>
                         </ul>
                     </li>
 

@@ -34,9 +34,6 @@
 						<!-- Phone No-->
 						{!! Form::text('mobile_number', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Mobile No *')) !!}
 
-						<!-- email -->
-						{!! Form::text('email', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Email')) !!}
-
 						<!-- Department -->
 						<label>Department</label>
 						{!! Form::select('dept', $depts, null, array('class' => 'form-control margin-bottom-20', 'required')) !!}
@@ -44,15 +41,19 @@
 						<!-- Registration no -->
 						{!! Form::text('reg_no', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Registration No *')) !!}
 						
-						<!-- Password -->
-						{!! Form::text('password', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Password *')) !!}						
+						<!-- Blood Group -->
+						<label>Blood Group</label>
+						{!! Form::select('bl_group', $bloodGroups , null, array('class' => 'form-control margin-bottom-20')) !!}
 
 						<!-- Are you capable of donating blood? -->
 						<label>Are you capable of donating blood?</label>
 						{!! Form::select('bl_donate_capable', $capability, null, array('class' => 'form-control margin-bottom-20')) !!}
 
-						<!-- Blood Group -->
-						{!! Form::select('bl_group', $bloodGroups , null, array('class' => 'form-control margin-bottom-20')) !!}
+						<!-- email -->
+						{!! Form::text('email', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Email *')) !!}
+						
+						<!-- Password -->
+						{!! Form::text('password', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Password *')) !!}						
 
 						<!-- Extra curricular activities -->
 						{!! Form::textarea('ex_curr_activities', '', array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Extra curricular activities')) !!}

@@ -13,7 +13,7 @@
 						<hr>
 						
 						<!-- Username -->
-						{!! Form::text('email', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Reg No or Email')) !!}
+						{!! Form::text('email', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Email')) !!}
 
 						<!-- Password -->
 						{!! Form::text('password', '' , array('class' => 'form-control margin-bottom-20', 'placeholder' => 'Password')) !!}

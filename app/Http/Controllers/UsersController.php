@@ -36,8 +36,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $depts = Department::lists('id','name');
-        $bloodGroups = BloodGroup::lists('id','name');
+        $depts = Department::lists('name','id');
+        $bloodGroups = BloodGroup::lists('name','id');
         $boolean = [
         '1' => 'Yes',
         '2' => 'No',
@@ -61,10 +61,16 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $rules =[
-            'name'                  => 'required',
+            'firstName'                  => 'required',
+            'lastName'                  => 'required',
+            'mother'                => 'required',
+            'father'                => 'required',
+            'present_address'       => 'required',
+            'mobile_number'         => 'required',
+            'reg_no'                => 'required',
             'email'                 => 'required|unique:users,email',
-            'password'              => 'required|confirmed',
-            'password_confirmation' => 'required'
+            'password'              => 'required'
+
         ];
         $data = $request->all();
 
@@ -74,11 +80,28 @@ class UsersController extends Controller
             return redirect()->back()->withErrors($validation)->withInput();
         }else{
             $user = new User;
-            $user->name = $data['name'];
+            $user->name = $data['firstName'].' '.$data['lastName'];
+            $user->reg_no = $data['reg_no'];
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
 
             if($user->save()){
+
+                $detail = new UserDetail;
+                $detail->user_id = $user->id;
+                $detail->mothers_name = $data['mother'];
+                $detail->fathers_name = $data['father'];
+                $detail->present_address = $data['present_address'];
+                $detail->mobile_number = $data['mobile_number'];
+                $detail->department_id = $data['dept'];
+                $detail->bl_donate_capable = $data['bl_donate_capable'];
+                $detail->bl_group_id = $data['bl_group'];
+                $detail->ex_curr_activities = $data['ex_curr_activities'];
+                $detail->why_to_be_swapnotthanian = $data['why_to_be_swapnotthanian'];
+                $detail->sector_to_work_in = $data['sector_to_work_in'];
+
+                $detail->save();
+
                 Auth::logout();
                 return redirect()->route('login')
                             ->with('success','Registered successfully. Sign In Now.');
@@ -97,8 +120,14 @@ class UsersController extends Controller
      */
     public function profile()
     {
-         return view('auth.profile')
-                    ->with('title', 'Profile')->with('user', Auth::user());
+        $user = Auth::user();
+        $details = UserDetail::find($user->id);
+        //$department = Department::find($details->department_id);
+        return view('auth.profile')
+                    ->with('title', 'Profile')
+                    ->with('user',$user)
+                    ->with('details',$details);
+                    //->with('department',$department);
     }
     /**
      * Display the specified resource.
