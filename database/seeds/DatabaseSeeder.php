@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GalleryTableSeeder::class);
         $this->call(SectorTableSeeder::class);
         $this->call(ImageTableSeeder::class);
+        $this->call(SupportTableSeeder::class);
+        
         
 
         if (env('DB_CONNECTION') == 'mysql') {

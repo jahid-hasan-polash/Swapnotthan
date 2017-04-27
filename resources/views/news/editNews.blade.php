@@ -2,10 +2,6 @@
     @section('content')
         @include('includes.alert')
         <h1>News Edit Page:</h1>
-        <div class="container">
-            <a class="btn btn-danger log-out" href="{{route('logout')}}">Log Out</a>
-        	<a class="btn btn-danger log-out" href="{{route('dashboard')}}">Admin Page</a>
-        </div>
         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
         <div class="container" style="padding-top: 5vh">
