@@ -44,7 +44,7 @@
             <div class="panel panel-default p-0">
                 <div class="panel-body p-0">
                     <ul class="nav nav-tabs profile-tabs">
-                        <li class="active"><a data-toggle="tab" href="#aboutme">About Me</a></li><!-- 
+                        <li class="active"><a data-toggle="tab" href="route('profile')">About Me</a></li><!-- 
                         <li class=""><a data-toggle="tab" href="#user-activities">Activities</a></li>
                         <li class=""><a data-toggle="tab" href="#edit-profile">Settings</a></li>
                         <li class=""><a data-toggle="tab" href="#projects">Projects</a></li> -->
@@ -54,8 +54,8 @@
 
                         <div id="aboutme" class="tab-pane active">
                             <div class="profile-desk">
-                                <h1>{!! $user->name!!}</h1>
-                                <span class="designation">Department of {!! $department->name !!}</span>
+                                <h1>{!! $user->name !!}</h1>
+                                <span class="designation">Department of {!! $user->detail->department->name !!}</span>
 
 
 
@@ -69,25 +69,25 @@
                                     <tr>
                                         <td><b>Father's Name</b></td>
                                         <td>
-                                          {!! $detail->fathers_name !!}
+                                          {!! $user->detail->fathers_name !!}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><b>Mother's Name</b></td>
                                         <td>
-                                          {!! $detail->mothers_name !!}
+                                          {!! $user->detail->mothers_name !!}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><b>Address</b></td>
                                         <td>
-                                          {!! $detail->present_address !!}
+                                          {!! $user->detail->present_address !!}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><b>Contact Number</b></td>
                                         <td>
-                                          {!! $detail->mobile_number !!}
+                                          {!! $user->detail->mobile_number !!}
                                         </td>
                                     </tr>
 

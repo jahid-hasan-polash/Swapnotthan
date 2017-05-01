@@ -5,7 +5,7 @@
         <meta name="author" content="">
 
 
-        <link rel="shortcut icon" href="img/favicon_1.ico">
+        <link rel="shortcut icon" href="/img/swapnotthan.ico">
 
         <title>{!! $title !!} - {!! Config::get('customConfig.names.siteName')!!}</title>
 
