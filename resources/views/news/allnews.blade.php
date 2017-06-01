@@ -2,10 +2,6 @@
     @section('content')
         @include('includes.alert')
         <h1>Swapnotthan News:</h1>
-        <div class="container text-right">
-        	<a class="btn btn-success log-out" href="{{route('dashboard')}}">Admin Page</a>
-            <a class="btn btn-danger log-out" href="{{route('logout')}}">Log Out</a>
-        </div>
         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
         <div class="container" style="padding-top: 5vh">
@@ -24,15 +20,15 @@
                     <?php $i=1; ?>
                     @foreach($data as $row)
                     <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$row->title}}</td>
-                    <td>{{$row->description}}</td>
+                    <td>{!! $i++ !!}</td>
+                    <td>{!! $row->title !!}</td>
+                    <td>{!! $row->description !!}</td>
                     <td>
-                        <a href="{{route('getEditNews',$row->id)}}" class="btn btn-warning">Edit</a>
+                        <a href="{!! route('getEditNews',$row->id) !!}" class="btn btn-warning">Edit</a>
                         
-                        <form action="{{route('deleteNews', $row->id) }}" method="POST" style="display: inline" onsubmit="
+                        <form action="{!! route('deleteNews', $row->id) !!}" method="POST" style="display: inline" onsubmit="
                         if(confirm('Delete!Are you sure?')) { return true } else {return false};" >
-                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                         <input type="hidden" name="_token" value="{!!  csrf_token() !!}">
                          <button type="submit" class="btn btn-danger">Delete</button>
 
                         </form>
@@ -46,8 +42,8 @@
 
                 </div>
             </div>
-            <form action="{{route('createNews')}}" method="POST" class="form-inline" style="padding-top: 5vh;">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <form action="{!! route('createNews')!!}" method="POST" class="form-inline" style="padding-top: 5vh;">
+                <input type="hidden" name="_token" value="{!! csrf_token()!!}">
 
                 <h2 style="padding-bottom: 30px;">Create Latest News:</h2>
                 <p>

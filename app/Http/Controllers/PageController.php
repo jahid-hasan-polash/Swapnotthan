@@ -11,6 +11,7 @@ use App\Sector;
 use App\Image;
 use App\SectorImage;
 use App\NewsImage;
+use App\Committee;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -62,18 +63,13 @@ class PageController extends Controller
                     ->with('gallery',$gallery);
     }
 
-    public function members(){
-
-        $gallery = Gallery::all();
-        return view('user.membersDemo')
-                    ->with('gallery',$gallery);
-    }
-
     public function executive(){
 
-
+        $committeeMembers = Committee::orderBy('created_at','desc')->first()->committeeMembers;
+        // return $committeeMembers;
         $gallery = Gallery::all();
-        return view('user.membersDemo')
+        return view('user.members')
+                    ->with('members',$committeeMembers)
                     ->with('gallery',$gallery);
     }
 
@@ -90,12 +86,10 @@ class PageController extends Controller
     public function showSectorDetails($id){
 
         $sector = Sector::find($id);
-        $image = Image::find(SectorImage::where('sector_id',$id)->first()->image_id);
         $gallery = Gallery::all();
         return view('user.sector')
                     ->with('gallery',$gallery)
-                    ->with('sector',$sector)
-                    ->with('image',$image);
+                    ->with('sector',$sector);
     }
 
     public function showNewsDetails($id){

@@ -8,4 +8,8 @@ class News extends Model
 {
     protected $table = 'news';
     protected $fillable=['title','description','created_at'];
+
+    public function newsImage(){
+        return $this->hasone('App\NewsImage','news_id','id');
+    }
 }

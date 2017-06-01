@@ -1,28 +1,24 @@
 @extends('layouts.default')
 @section('content')
 
-        <!-- Page Content Start -->
-<!-- ================== -->
-
 <div class="wraper container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="bg-picture" style="background-image:url('img/bg_6.jpg')">
+            <div class="bg-picture" style="background-image:url('/img/bg_6.jpg')">
                 <span class="bg-picture-overlay"></span><!-- overlay -->
                 <!-- meta -->
                 <div class="box-layout meta bottom">
 
                     <div class="col-sm-6 clearfix">
-                        <span class="img-wrapper pull-left m-r-15"><img src="img/avatar-2.jpg" alt="" style="width:64px" class="br-radius"></span>
+                        <span class="img-wrapper pull-left m-r-15"><img src="/img/avatar_user.png" alt="" style="width:64px" class="br-radius"></span>
                         <div class="media-body">
                             <h3 class="text-white mb-2 m-t-10 ellipsis">{{$user->name}}</h3>
-                            <h5 class="text-white"> Mycityname</h5>
                         </div>
                     </div>
 
 
 
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <div class="pull-right">
                             <div class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle btn btn-primary" href="#"> Following <span class="caret"></span></a>
@@ -34,7 +30,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -48,55 +44,60 @@
             <div class="panel panel-default p-0">
                 <div class="panel-body p-0">
                     <ul class="nav nav-tabs profile-tabs">
-                        <li class="active"><a data-toggle="tab" href="#aboutme">About Me</a></li>
+                        <li class="active"><a data-toggle="tab" href="route('profile')">About Me</a></li><!-- 
                         <li class=""><a data-toggle="tab" href="#user-activities">Activities</a></li>
                         <li class=""><a data-toggle="tab" href="#edit-profile">Settings</a></li>
-                        <li class=""><a data-toggle="tab" href="#projects">Projects</a></li>
+                        <li class=""><a data-toggle="tab" href="#projects">Projects</a></li> -->
                     </ul>
 
                     <div class="tab-content m-0">
 
                         <div id="aboutme" class="tab-pane active">
                             <div class="profile-desk">
-                                <h1>{{$user->name}}</h1>
-                                <span class="designation">PRODUCT DESIGNER (UX / UI / Visual Interaction)</span>
-                                <p>
-                                    I have 10 years of experience designing for the web, and specialize in the areas of user interface design, interaction design, visual design and prototyping. I’ve worked with notable startups including Pearl Street Software.
-                                </p>
+                                <h1>{!! $user->name !!}</h1>
+                                <span class="designation">Department of {!! $user->detail->department->name !!}</span>
+
 
 
                                 <table class="table table-condensed">
                                     <thead>
                                     <tr>
-                                        <th colspan="3"><h3>Contact Information</h3></th>
+                                        <th colspan="3"><h3>Information</h3></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td><b>Url</b></td>
+                                        <td><b>Father's Name</b></td>
                                         <td>
-                                            <a href="#" class="ng-binding">
-                                                www.example.com
-                                            </a></td>
+                                          {!! $user->detail->fathers_name !!}
+                                        </td>
                                     </tr>
+                                    <tr>
+                                        <td><b>Mother's Name</b></td>
+                                        <td>
+                                          {!! $user->detail->mothers_name !!}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Address</b></td>
+                                        <td>
+                                          {!! $user->detail->present_address !!}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Contact Number</b></td>
+                                        <td>
+                                          {!! $user->detail->mobile_number !!}
+                                        </td>
+                                    </tr>
+
                                     <tr>
                                         <td><b>Email</b></td>
                                         <td>
-                                            <a href="#" class="ng-binding">
-                                                {{$user->email}}
-                                            </a></td>
+                                          {!! $user->email !!}
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td><b>Phone</b></td>
-                                        <td class="ng-binding">(123)-456-7890</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Skype</b></td>
-                                        <td>
-                                            <a href="#" class="ng-binding">
-                                                jonathandeo123
-                                            </a></td>
-                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div> <!-- end profile-desk -->

@@ -47,7 +47,7 @@
 						<h3 class="panel-title" style="color: #009973">Contact Info</h3>
 					</div>
 					<div class="panel-body">
-						<p>Lorem ipsum dolor sit amet, no cetero voluptatum est, audire sensibus maiestatis vis et. Vitae audire prodesset an his. Nulla ubique omnesque in sit.</p>
+						<p>Shahjalal University of Science and Technology, Sylhet, 3114</p>
 						<ul class="list-unstyled">
 							<li><i class="fa-phone color-primary"></i>+8801860710020</li>
 							<li><i class="fa-phone color-primary"></i>+8801955676069</li>

@@ -94,7 +94,7 @@
 									<h3 class="margin-top-20" style="color: #009973; margin-bottom: 20px;"><a href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">{!! $sector->title !!}</a></h3>
 									
 										<figure>
-											<img src="/img/SectorImages/image{!! $sector->id !!}.jpg">
+											<img class="img-responsive" src="/img/SectorImages/image{!! $sector->id !!}.jpg">
 											<div class="overlay">
 												<a class="expand" href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">Image Link</a>
 											</div>

@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <footer class="footer">
-	Copyright &copy; 2016CSE,UST, Bangladesh. All rights reserved.
+	
 </footer>
 <!-- Footer Ends -->
 

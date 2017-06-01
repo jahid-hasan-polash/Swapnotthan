@@ -3,46 +3,114 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\News;
 use App\OurMission;
 use Input;
 use App\Gallery;
+use App\RoleUser;
 use File;
 use App\Slider;
+use App\Designation;
+use App\Committee;
+use App\CommitteeMember;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+
+    public function showMembers(){
+        $members = User::all();
+        return view('members.show')
+                    ->with('members',$members)
+                    ->with('title','members');
+    }
+
+    public function editMember($id){
+        $designations = Designation::lists('title','id');
+        $committees = Committee::lists('fiscal','id');
+        $member = User::find($id);
+        return view('members.edit')
+                    ->with('member',$member)
+                    ->with('designations',$designations)
+                    ->with('committees',$committees)
+                    ->with('title','Edit member');
+    }
+
+
+    //basically adds a new row in the committee member table
+    public function doEditMember($id, Request $request){
+        $committeeMember = new CommitteeMember;
+        $data = $request->all();
+        $user = User::find($id);
+        //return $user;
+        $committeeMember->committee_id = $data['committee_id'];
+        $committeeMember->designation_id = $data['designation'];
+        $committeeMember->user_id = $user->id;
+        if($committeeMember->save()){
+            $members = User::all();
+            return view('members.show')
+                    ->with('members',$members)
+                    ->with('title','members')
+                    ->with('success','Updated successfully.');
+        } else {
+            return redirect()->route('dashboard')
+                            ->with('error',"Something went wrong.Please Try again.");
+        }
+
+    }
     
+//faulty function
+    public function makeAdmin($id){
+
+        $user = User::find($id);
+        $roleuser = RoleUser::find($user->id);
+        //return $roleuser->role_id;
+        $roleuser->role_id = 1;
+        if($roleuser->save()){
+            return redirect('dashboard')->with('success','You Have made an admin successfully.');
+        } else {
+            return redirect('dashboard')->with('error','Something went wrong!!');
+        }
+        
+    }
+
     /*For news section*/
     public function newsShow()
     {
         
-        $data=News::all();
-        return view('news.allnews')->with('data',$data);
+        $data=News::orderBy('created_at','desc')->get();
+        return view('news.allnews')
+                    ->with('data',$data)
+                    ->with('title','News');
     }
     public function createNews()
     {
         
         $data=[
                     
-                'title'=>Input::get('newsTitle'),
-                'description'=>Input::get('newsDescription'),
+                'title' => Input::get('newsTitle'),
+                'description' => Input::get('newsDescription'),
                     ];
          
-               $response=News::create($data);
+               $response = News::create($data);
                if($response){
-                   $data=News::all();
-                   return redirect('news')->with('data',$data);
+                   $data = News::orderBy('created_at','desc')->get();
+                   return redirect('news')
+                                ->with('data',$data)
+                                ->with('title','News');
                }
     }
 
     public function editNews($id)
         {
             $data=News::find($id);
-            return view('news.editNews')->with('data',$data);
+            return view('news.editNews')
+                    ->with('data',$data)
+                    ->with('title','News');
         }
+
     public function updateNews($id)
         {
            $data=[
@@ -53,16 +121,18 @@ class AdminController extends Controller
             
                   $response=News::find($id)->update($data);
                   if($response){
-                      $data=News::all();
-                      return redirect('news')->with('data',$data);
+                      $data=News::orderBy('created_at','desc')->get();
+                      return redirect('news')
+                            ->with('data',$data)
+                            ->with('title','News');
                   }
         }
 
     public function destroyNews($id)
         {
-            $response=News::find($id)->delete();
+            $response = News::find($id)->delete();
             if($response){
-                return redirect('news');
+                return redirect('news')->with('title','News');
             }
         }
     /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
@@ -72,7 +142,9 @@ class AdminController extends Controller
     public function editMission($id)
         {
             $data=OurMission::find($id);
-            return view('mission.editMission')->with('data',$data);
+            return view('mission.editMission')
+                        ->with('data',$data)
+                        ->with('title','Mission');
         }
     public function updateMission($id)
         {
@@ -83,7 +155,8 @@ class AdminController extends Controller
                   $response=OurMission::find($id)->update($data);
                   if($response){
                       $data=OurMission::all();
-                      return redirect('dashboard');
+                      return redirect('dashboard')
+                                ->with('title','Dashboard');
                   }
         }
 
@@ -94,14 +167,18 @@ class AdminController extends Controller
     public function sliderImages()
         {
             $data=Slider::all();
-            return view('slider.changeSlider')->with('data',$data);
+            return view('slider.changeSlider')
+                        ->with('data',$data)
+                        ->with('title','Slider');
 
         }
 
     public function uploadImage($id)
         {
             $data=Slider::find($id);
-            return view('slider.uploadImage')->with('data',$data);
+            return view('slider.uploadImage')
+                        ->with('data',$data)
+                        ->with('title','Slider');
 
         }
 
@@ -140,7 +217,8 @@ class AdminController extends Controller
 
             $image->save();
 
-            return view('dashboard');
+            return view('dashboard')
+                        ->with('title','Dashboard');
 
         }
 
@@ -149,12 +227,16 @@ class AdminController extends Controller
 
         public function updateGallery(){
             $data=Gallery::all();
-            return view('gallery.galleryAdmin')->with('data',$data);
+            return view('gallery.galleryAdmin')
+                            ->with('data',$data)
+                            ->with('title','Gallery');
         }
 
         public function uploadGalleryImage($id){
             $data=Gallery::find($id);
-            return view('gallery.uploadGalleryImage')->with('data',$data);
+            return view('gallery.uploadGalleryImage')
+                            ->with('data',$data)
+                            ->with('title','Gallery');
         }
 
         public function storeGalleryImage(Request $request)
@@ -192,7 +274,8 @@ class AdminController extends Controller
 
                 $image->save();
 
-                return view('dashboard');
+                return view('dashboard')
+                            ->with('title','Dashboard');
 
             }
 
