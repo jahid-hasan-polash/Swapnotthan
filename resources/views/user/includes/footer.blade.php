@@ -113,11 +113,25 @@
 		</div>
 	</div>
 
+	<style type="text/css">
+		.footer-custom a{
+			color: #7be073;
+		}
+		.footer-custom a:hover{
+			color: #15a133;
+			text-decoration: underline;
+		}
+		.footer-custom i{
+			color: #ffffff;
+		}
+	</style>
+
 <div id="footer">
 			<div class="container">
 				<div class="row">
-					<div id="copyright" class="col-md-4">
-						<p> &copy; 2016 Copyright Swapnotthan</p>
+					<div id="copyright" class="col-md-4 footer-custom">
+						<p>Powered by <a href="http://www.sust.edu/d/cse" target="_blank">CSE,SUST</a> .</p>
+						<p>Made with love by <a href="https://www.linkedin.com/in/abu-hanife-nayem-8a9b03119/" target="_blank">Nayem</a> & <a href="https://www.linkedin.com/in/jahid-hasan-polash-0247a2111/" target="_blank"> Polash</a> .</p>
 					</div>
 					<div id="footermenu" class="col-md-8">
 						<ul class="social-icons circle color no-padding pull-right">
