@@ -27,6 +27,10 @@
 							width: 100%;
 							min-height: 60vh;
 						}
+						/*#lbCenter{
+							max-height: 70vh;
+							max-width: 100vh;
+						}*/
 					</style>
 					<!-- Carousel Images -->
 					<div class="carousel-inner">
