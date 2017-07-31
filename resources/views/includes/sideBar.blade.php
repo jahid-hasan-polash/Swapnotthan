@@ -1,6 +1,5 @@
  <!-- Aside Start-->
 <aside class="left-panel">
-
             <!-- brand -->
             <div class="logo">
                 <a href="{!! route('dashboard') !!}" class="logo-expanded">
@@ -22,10 +21,10 @@
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
                                 <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
                             </li>
-
                             <li class="{!! Menu::isActiveURL('admin/members') !!}">
                                 <a href="{!!  route('members') !!}">Members</a>
                             </li>
+                            
                         </ul>
                     </li>
 

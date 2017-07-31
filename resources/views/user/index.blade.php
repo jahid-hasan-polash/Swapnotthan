@@ -119,3 +119,15 @@
 
 
 @stop
+
+@section('style')
+<style>
+@font-face{
+    font-family: "AllAges";
+    src: url('{{ asset('fonts/AllAgesDEMO.ttf') }}');
+}
+h1 {
+	font-family: "AllAges";
+}
+</style>
+@stop

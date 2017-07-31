@@ -71,6 +71,9 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('admin/members', ['as' => 'members', 'uses' => 'AdminController@showMembers']);
 	Route::get('admin/members/{id}', ['as' => 'members.edit', 'uses' => 'AdminController@editMember']);
 	Route::post('admin/members/{id}', ['as' => 'members.doEdit', 'uses' => 'AdminController@doEditMember']);
+	Route::get('admin/members/show/{id}', ['as' => 'members.info', 'uses' => 'AdminController@showMemberInfo']);
+	Route::get('admin/members/changePassword/{id}', ['as' => 'members.changePassword', 'uses' => 'AdminController@changePassword']);
+	Route::post('admin/members/changePassword/{id}', ['as' => 'members.password.doChange', 'uses' => 'AdminController@doChangePassword']);
 	Route::get('admin/members/make/{id}/admin', ['as' => 'members.makeAdmin', 'uses' => 'AdminController@makeAdmin']);
 
 	/*News panel route start*/
