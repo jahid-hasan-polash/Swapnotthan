@@ -27,6 +27,7 @@
                             <!-- only if he is the admin -->
                             <td class="text-center">
                                 <a class="btn btn-success" href="{!! route('members.edit',$member->id) !!}">Make Executive</a>
+                                <a class="btn btn-danger" href="{!! route('members.info',$member->id) !!}">View Details</a>
                             </td>
                             <!-- <td class="text-center">
                                 <a class="btn btn-danger" href="{!! route('members.makeAdmin',$member->id) !!}">Make Admin</a>

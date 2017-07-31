@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <footer class="footer">
-	Copyright &copy; 2017Jahid and Hanife. All rights reserved.
+	
 </footer>
 <!-- Footer Ends -->
 

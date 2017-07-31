@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\BloodGroup;
 use App\Department;
 use App\Committee;
+use App\CommitteeMember;
 use App\Designation;
 
 class SupportTableSeeder extends Seeder
@@ -28,7 +29,7 @@ class SupportTableSeeder extends Seeder
 	        ];
 
 	    $departments = [
-	    	['name'=>'CHE'],
+	    	['name'=>'CHE'], // 
 	        ['name'=>'GEE'],
 	        ['name'=>'MAT'],
 	        ['name'=>'PHY'],
@@ -66,6 +67,28 @@ class SupportTableSeeder extends Seeder
 	   		['fiscal'=>2017]
 	   		];
 
+	   	$comitteeMembers = [
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>1,
+	   		 'user_id'			=>5
+	   		],
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>3,
+	   		 'user_id'			=>7
+	   		],
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>5,
+	   		 'user_id'			=>3
+	   		],
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>6,
+	   		 'user_id'			=>4
+	   		],
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>7,
+	   		 'user_id'			=>6
+	   		]
+	   	];
 
 	   	$designations = [
 	   		['title'=>'President'],
@@ -97,6 +120,12 @@ class SupportTableSeeder extends Seeder
 	  	foreach ($designations as $designation) {
 	  		Designation::create($designation);
 	  	}
+
+	  	//seed committee_members
+	  	foreach ($comitteeMembers as $comitteeMember) {
+	  		CommitteeMember::create($comitteeMember);
+	  	}
+
 
     }
 }

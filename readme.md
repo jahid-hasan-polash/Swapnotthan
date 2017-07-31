@@ -17,7 +17,7 @@ Configure .env in the project directory.
 'php artisan db:seed'
 'php artisan serve'
 
-and the project is open ar 
+and the project is open at
 
 http://localhost:8000/
 

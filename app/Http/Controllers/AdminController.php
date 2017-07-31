@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserDetail;
 use App\News;
 use App\OurMission;
 use Input;
@@ -16,6 +17,8 @@ use App\Committee;
 use App\CommitteeMember;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -25,6 +28,14 @@ class AdminController extends Controller
         return view('members.show')
                     ->with('members',$members)
                     ->with('title','members');
+    }
+
+    public function showMemberInfo($id){
+        $user = User::find($id);
+        // return $user;
+        return view('members.showInfo')
+                    ->with('user',$user)
+                    ->with('title','Member Information');
     }
 
     public function editMember($id){
@@ -60,7 +71,42 @@ class AdminController extends Controller
         }
 
     }
+
+    public function changePassword($id){
+        $user = User::find($id);
+        return view('members.changePassword')
+                    ->with('user',$user)
+                    ->with('title','Edit this users password');
+    }
     
+    public function doChangePassword($id, Request $request){
+        $rules =[
+            'password'              => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ];
+        $data = $request->all();
+
+        $validation = Validator::make($data,$rules);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }else{
+            $user = User::find($id);
+            $user->password = Hash::make($data['password']);
+
+            if($user->save()){
+                // Auth::logout();
+                // return redirect()->route('login')
+                //             ->with('success','Your password changed successfully.');
+                return redirect()->route('members')
+                            ->with('success','Password changed successfully.');
+            }else{
+                return redirect()->route('dashboard')
+                            ->with('error',"Something went wrong.Please Try again.");
+            }
+        }
+    }
+
 //faulty function
     public function makeAdmin($id){
 

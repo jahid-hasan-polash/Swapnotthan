@@ -15,6 +15,7 @@ class CreateCommitteesTable extends Migration
         Schema::create('committees', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fiscal');
+            $table->integer('comittee_number');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
                             <th class="text-center">Name</th>
                             <th class="text-center">Department</th>
                             <th class="text-center">Designation</th>
-                            <th class="text-center">Phone</th>
+                            <th class="text-center">Contacts</th>
                         </thead>
                         <tbody>
                             @foreach($members as $member)

@@ -27,6 +27,10 @@
 							width: 100%;
 							min-height: 60vh;
 						}
+						/*#lbCenter{
+							max-height: 70vh;
+							max-width: 100vh;
+						}*/
 					</style>
 					<!-- Carousel Images -->
 					<div class="carousel-inner">
@@ -114,4 +118,16 @@
 						</div>
 
 
+@stop
+
+@section('style')
+<style>
+@font-face{
+    font-family: "AllAges";
+    src: url('{{ asset('fonts/AllAgesDEMO.ttf') }}');
+}
+h1 {
+	font-family: "AllAges";
+}
+</style>
 @stop
