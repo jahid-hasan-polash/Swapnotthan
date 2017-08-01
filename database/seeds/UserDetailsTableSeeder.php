@@ -96,6 +96,30 @@ class UserDetailsTableSeeder extends Seeder
             'ex_curr_activities'=>'Book Reading',
             'why_to_be_swapnotthanian'=>'Swapnotthan is a true voluntary organisation with proper dedication.',
             'sector_to_work_in'=>'Organising, Education'
+            ],
+            ['user_id'=>8,
+            'mothers_name'=>'Moyna Begum',
+            'fathers_name'=>'Samsir Uddin',
+            'present_address'=>'5006, Bangabondhu Hall, SUST',
+            'mobile_number'=>'+880173065830',
+            'department_id'=> 26,
+            'bl_donate_capable'=>1,
+            'bl_group_id'=>1,
+            'ex_curr_activities'=>'Book Reading',
+            'why_to_be_swapnotthanian'=>'Swapnotthan is a true voluntary organisation with proper dedication.',
+            'sector_to_work_in'=>'Organising, Education'
+            ],
+            ['user_id'=>9,
+            'mothers_name'=>'Nolini Devi',
+            'fathers_name'=>'Late Biraj Singha',
+            'present_address'=>'Agrani 8, Londoni road, Sylhet',
+            'mobile_number'=>'+8801681977579',
+            'department_id'=> 26,
+            'bl_donate_capable'=>1,
+            'bl_group_id'=>1,
+            'ex_curr_activities'=>'Book Reading',
+            'why_to_be_swapnotthanian'=>'Swapnotthan is a true voluntary organisation with proper dedication.',
+            'sector_to_work_in'=>'Organising, Education'
             ]
     	];
 

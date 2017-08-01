@@ -55,12 +55,21 @@ Route::group(['middleware' => 'guest'], function(){
 
 });
 
+Route::group(array('middleware' => ['auth']), function()
+{
+	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
+});
 
+Route::group(array('middleware' => ['auth','role:user']), function()
+{
+	Route::get('user/dashboard', array('as' => 'user.dashboard', 'uses' => 'UsersController@dashboard'));
+	Route::get('user/profile/edit', array('as' => 'user.editProfile', 'uses' => 'UsersController@edit'));
+	Route::post('user/profile/edit', array('as' => 'user.doEditProfile', 'uses' => 'UsersController@update'));
 
-Route::group(array('middleware' => 'auth'), function()
+});
+Route::group(array('middleware' => ['auth','role:admin']), function()
 {
 
-	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
