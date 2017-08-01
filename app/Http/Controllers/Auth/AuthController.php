@@ -104,8 +104,17 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials))
             {
-                return view('dashboard')
-                    ->with('title','Dashboard')->with('user', Auth::user());
+                $user = Auth::user();
+
+                if ($user->hasRole('admin')){
+                    return redirect()->route('dashboard')
+                            ->with('success',"You are successfully logged In.");
+                } else {
+                    return redirect()->route('user.dashboard')
+                            ->with('success',"You are successfully logged In.");
+                }
+                // return view('dashboard')
+                    // ->with('title','Dashboard')->with('user', Auth::user());
             } 
             else
             {

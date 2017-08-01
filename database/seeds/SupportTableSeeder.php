@@ -77,6 +77,14 @@ class SupportTableSeeder extends Seeder
 	   		 'user_id'			=>7
 	   		],
 	   		['committee_id'		=>6,
+	   		 'designation_id'	=>2,
+	   		 'user_id'			=>8
+	   		],
+	   		['committee_id'		=>6,
+	   		 'designation_id'	=>4,
+	   		 'user_id'			=>9
+	   		],
+	   		['committee_id'		=>6,
 	   		 'designation_id'	=>5,
 	   		 'user_id'			=>3
 	   		],

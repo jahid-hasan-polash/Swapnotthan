@@ -47,6 +47,16 @@ class UsersTableSeeder extends Seeder
             'email' => 'mahedikabir1@gmail.com',
             'reg_no'=>'2013731034',
             'password' => bcrypt('abc123')
+            ],
+            ['name' => 'Ataur Rahman',
+            'email' => 'ataur.bba16@gmail.com',
+            'reg_no'=>'2013731035',
+            'password' => bcrypt('abc123')
+            ],
+            ['name' => 'Bithee Devi',
+            'email' => 'bithee94@gmail.com',
+            'reg_no'=>'2013731084',
+            'password' => bcrypt('abc123')
             ]
     	];
     	
