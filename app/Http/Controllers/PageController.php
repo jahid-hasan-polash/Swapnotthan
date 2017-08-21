@@ -12,6 +12,7 @@ use App\Image;
 use App\SectorImage;
 use App\NewsImage;
 use App\Committee;
+use App\CommitteeMember;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
