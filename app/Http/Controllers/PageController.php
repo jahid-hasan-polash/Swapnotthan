@@ -27,12 +27,12 @@ class PageController extends Controller
         $mission = OurMission::first();
         $newses = News::orderBy('created_at','desc')->take(5)->get();
         $sectors = Sector::all();
+        // Slider::all();
         $slider1 = Slider::find(1);
         $slider2 = Slider::find(2);
         $slider3 = Slider::find(3);
         $slider4 = Slider::find(4);
         $gallery = Gallery::all();//Gallary::take(12)->get();
-
 
         return view('user.index')
                     ->with('mission',$mission)

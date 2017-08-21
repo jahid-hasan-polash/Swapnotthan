@@ -21,77 +21,77 @@
 				<div class="col-md-3 margin-bottom-20">
 					<div class="thumbs-gallery">
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[1] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[1]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image1.jpg" alt="image1.jpg"> -->
-							<img src="/img/gallery/{{ $image[1] }}">
+							<img src="{{ asset($image[1]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[2] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[2]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image2.jpg" alt="image2.jpg"> -->
-							<img src="/img/gallery/{{ $image[2] }}">
+							<img src="{{ asset($image[2]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[3] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[3]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image3.jpg" alt="image3.jpg"> -->
-							<img src="/img/gallery/{{ $image[3] }}">
+							<img src="{{ asset($image[3]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[4] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[4]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image4.jpg" alt="image4.jpg"> -->
-							<img src="/img/gallery/{{ $image[4] }}">
+							<img src="{{ asset($image[4]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[5] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[5]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image6.jpg" alt="image6.jpg"> -->
-							<img src="/img/gallery/{{ $image[5] }}">
+							<img src="{{ asset($image[5]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[6] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[6]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image7.jpg" alt="image7.jpg"> -->
-							<img src="/img/gallery/{{ $image[6] }}">
+							<img src="{{ asset($image[6]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[7] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[7]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image8.jpg" alt="image8.jpg"> -->
-							<img src="/img/gallery/{{ $image[7] }}">
+							<img src="{{ asset($image[7]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[8] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[8]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image9.jpg" alt="image9.jpg"> -->
-							<img src="/img/gallery/{{ $image[8] }}">
+							<img src="{{ asset($image[8]) }}">
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[9] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[9]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image92.jpg" alt="image92.jpg"> -->
-							<img src="/img/gallery/{{ $image[9] }}">
+							<img src="{{ asset($image[9]) }}">
 
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[10] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[10]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image94.jpg" alt="image94.jpg"> -->
-							<img src="/img/gallery/{{ $image[10] }}">
+							<img src="{{ asset($image[10]) }}">
 
 						<i></i></a>
 
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[11] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[11]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image95.jpg" alt="image95.jpg"> -->
-							<img src="/img/gallery/{{ $image[11] }}">
+							<img src="{{ asset($image[11]) }}">
 
 						<i></i></a>
 
-						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="/img/gallery/{{ $image[12] }}">
+						<a class="thumbBox fixed-len-thum" rel="lightbox-thumbs" href="{{ asset($image[12]) }}">
 							<!-- <img src="asset/img/thumbsgallery/thumbs/image96.jpg" alt="image96.jpg"> -->
-							<img src="/img/gallery/{{ $image[12] }}">
+							<img src="{{ asset($image[12]) }}">
 
 						<i></i></a>
 

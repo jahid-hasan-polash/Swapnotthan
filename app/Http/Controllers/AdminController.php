@@ -243,7 +243,7 @@ class AdminController extends Controller
             //Deleting the old image
 
             $data=Slider::find($id);
-            File::delete('img/slider/'.$data->image_link);
+            File::delete($data->image_link);
 
             //adding new image
 
@@ -251,15 +251,30 @@ class AdminController extends Controller
 
             $image->image_title = $request->imageTitle;
 
-            if($request->hasFile('image')) {
-                $file = Input::file('image');
+            // if($request->hasFile('image')) {
+            //     $file = Input::file('image');
+            //     $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            //     $name = '/img/slider/Image_' .$fileOriginalName;
                 
-                $name = 'Image_' .$file->getClientOriginalName();
-                
-                $image->image_link = $name;
+            //     $image->image_link = $name;
 
-                $file->move(public_path().'/img/slider/', $name);
+            //     $file->move(public_path().'/img/ $name);
+            // }
+            $name = '';
+            if(Input::hasFile('image')) {
+            $file = Input::file('image');
+            $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $destination = public_path().'/img/slider/';
+            $filename = "Image_".$fileOriginalName;
+            $file->move($destination, $filename);
+            $name = '/img/slider/'.$filename;
+
+            } else {
+                return redirect()->back()->withInput()->withErrors('Images Required');
             }
+
+            $image->image_link = $name;
+
 
             $image->save();
 
@@ -300,23 +315,55 @@ class AdminController extends Controller
                 //Deleting the old image
 
                 $data=Gallery::find($id);
-                File::delete('img/gallery/'.$data->image_link);
+                // File::delete('img/gallery/'.$data->image_link);
 
-                //adding new image
+                // //adding new image
 
-                $image = $data;
+                // $image = $data;
 
-                $image->image_title = $request->imageTitle;
+                // $image->image_title = $request->imageTitle;
 
-                if($request->hasFile('image')) {
-                    $file = Input::file('image');
+                // if($request->hasFile('image')) {
+                //     $file = Input::file('image');
                     
-                    $name = 'Image_' .$file->getClientOriginalName();
+                //     $name = 'Image_' .$file->getClientOriginalName();
                     
-                    $image->image_link = $name;
+                //     $image->image_link = $name;
 
-                    $file->move(public_path().'/img/gallery/', $name);
-                }
+                //     $file->move(public_path().'/img/gallery/', $name);
+                // }
+
+                File::delete($data->image_link);
+
+            //adding new image
+
+            $image = $data;
+
+            $image->image_title = $request->imageTitle;
+
+            // if($request->hasFile('image')) {
+            //     $file = Input::file('image');
+            //     $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            //     $name = '/img/slider/Image_' .$fileOriginalName;
+                
+            //     $image->image_link = $name;
+
+            //     $file->move(public_path().'/img/ $name);
+            // }
+            $name = '';
+            if(Input::hasFile('image')) {
+            $file = Input::file('image');
+            $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
+            $destination = public_path().'/img/gallery/';
+            $filename = "Image_".$fileOriginalName;
+            $file->move($destination, $filename);
+            $name = '/img/gallery/'.$filename;
+
+            } else {
+                return redirect()->back()->withInput()->withErrors('Images Required');
+            }
+
+            $image->image_link = $name;
 
                 $image->save();
 

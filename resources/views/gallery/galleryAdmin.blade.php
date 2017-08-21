@@ -12,7 +12,7 @@
         	<div class="row">
         	@foreach($data as $row)
         		<div class="col-md-3 text-center">
-        			<img class="img-responsive" src="img/gallery/{{$row->image_link}}"; style="margin-left: auto;margin-right: auto;">
+        			<img class="img-responsive" src="{{ asset($row->image_link) }}"; style="margin-left: auto;margin-right: auto;">
         			<a class="btn btn-success" href="{{route('uploadGalleryImage',$row->id)}}" style="margin-top: 25px;">Change Image {{$row->id}}
         			</a>
         		</div>

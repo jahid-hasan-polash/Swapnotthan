@@ -15,12 +15,12 @@ class ImageTableSeeder extends Seeder
     public function run()
     {
         $images = [
-	        ['image_title'=>'news1.jpg'],
-	        ['image_title'=>'news2.jpg'],
-	        ['image_title'=>'news3.jpg'],
-	        ['image_title'=>'image1.jpg'],
-	        ['image_title'=>'image2.jpg'],
-	        ['image_title'=>'image3.jpg']
+	        ['image_title'=>'\img\Images\news1.jpg'],
+	        ['image_title'=>'\img\Images\news2.jpg'],
+	        ['image_title'=>'\img\Images\news3.jpg'],
+	        ['image_title'=>'\img\SectorImages\image1.jpg'],
+	        ['image_title'=>'\img\SectorImages\image2.jpg'],
+	        ['image_title'=>'\img\SectorImages\image3.jpg']
         ];
 
         $newsImages = [

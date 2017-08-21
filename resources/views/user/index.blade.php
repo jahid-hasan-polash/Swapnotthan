@@ -35,16 +35,17 @@
 					<!-- Carousel Images -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<img class="img-responsive" src="/img/slider/{{$slider1->image_link}}">
+							<img class="img-responsive" src="{!! asset($slider1->image_link) !!}">
+						</div>
+						
+						<div class="item">
+							<img class="img-responsive" src="{{ asset($slider2->image_link) }}">
 						</div>
 						<div class="item">
-							<img class="img-responsive" src="/img/slider/{{$slider2->image_link}}">
+							<img class="img-responsive" src="{{ asset($slider3->image_link) }}">
 						</div>
 						<div class="item">
-							<img class="img-responsive" src="/img/slider/{{$slider3->image_link}}">
-						</div>
-						<div class="item">
-							<img class="img-responsive" src="/img/slider/{{$slider4->image_link}}">
+							<img class="img-responsive" src="{{ asset($slider4->image_link) }}">
 						</div>
 					</div>
 					<!-- End Carousel Images -->
@@ -94,7 +95,7 @@
 									<h3 class="margin-top-20" style="color: #009973; margin-bottom: 20px;"><a href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">{!! $sector->title !!}</a></h3>
 									
 										<figure>
-											<img class="img-responsive" src="/img/SectorImages/image{!! $sector->id !!}.jpg">
+											<img class="img-responsive" src="{{ asset($sector->sectorImage->first()->image->image_title) }}">
 											<div class="overlay">
 												<a class="expand" href="{!! URL::route( 'sector.show', [$sector->id]) !!} ">Image Link</a>
 											</div>

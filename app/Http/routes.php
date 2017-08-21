@@ -15,7 +15,7 @@
 Route::get('/', function () {
 	return Redirect::route('index');
 });
-
+Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
 
 Route::group(['middleware' => 'guest'], function(){
 	
@@ -28,7 +28,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 	//Page routes
-	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
+	
 	Route::get('/user/whatWeDo', array('as'=>'whatWeDo', 'uses' => 'PageController@whatWeDo'));
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
