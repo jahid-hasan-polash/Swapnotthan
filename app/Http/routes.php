@@ -15,20 +15,9 @@
 Route::get('/', function () {
 	return Redirect::route('index');
 });
-Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
 
-Route::group(['middleware' => 'guest'], function(){
-	
-
-	//Route::controller('password', 'RemindersController');
-
-	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
-	
-
-
-	//Page routes
-	
+//Page routes
+	Route::get('home', ['as'=>'index','uses'=>'PageController@index']);
 	Route::get('/user/whatWeDo', array('as'=>'whatWeDo', 'uses' => 'PageController@whatWeDo'));
 	Route::get('/user/general', array('as'=>'general', 'uses' => 'PageController@members'));
 	Route::get('/user/executives', array('as'=>'executive', 'uses' => 'PageController@executive'));
@@ -41,8 +30,14 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/user/donate', array('as'=>'donate', 'uses' => 'PageController@showDonatePage'));
 	Route::get('/news/{id}', array('as'=>'news.show', 'uses' => 'PageController@showNewsDetails'));
 
+Route::group(['middleware' => 'guest'], function(){
 	
 
+	//Route::controller('password', 'RemindersController');
+
+	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
+	
 	//Call to the create method of userController for register blade
 	Route::get('/user/register', array('as'=>'register', 'uses' => 'UsersController@create'));
 	Route::post('/user/register/store', array('as'=>'user.register', 'uses'=>'UsersController@store'));

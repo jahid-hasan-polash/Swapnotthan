@@ -19,6 +19,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator;
 use Hash;
+use App\Image;
+use App\NewsImage;
 
 class AdminController extends Controller
 {
@@ -131,6 +133,7 @@ class AdminController extends Controller
                     ->with('data',$data)
                     ->with('title','News');
     }
+
     public function createNews()
     {
         
@@ -141,7 +144,30 @@ class AdminController extends Controller
                     ];
          
                $response = News::create($data);
+               // return $response;
                if($response){
+                // upload a news image
+
+                if(Input::hasFile('image')) {
+                    $file = Input::file('image');
+                    $image = new Image;
+                    $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
+                    $destination = public_path().'/img/gallery/';
+                    $filename = "Image_".$fileOriginalName;
+                    $file->move($destination, $filename);
+                    $name = '/img/gallery/'.$filename;
+                    $image->image_title = $name;
+                    $image->save();
+
+                    $newsImage = new NewsImage;
+                    $newsImage->news_id = $response->id;
+                    $newsImage->image_id = $image->id;
+                    $newsImage->save();
+
+                } else {
+                    return 'file not found';
+                }
+
                    $data = News::orderBy('created_at','desc')->get();
                    return redirect('news')
                                 ->with('data',$data)
@@ -242,7 +268,7 @@ class AdminController extends Controller
 
             //Deleting the old image
 
-            $data=Slider::find($id);
+            $data = Slider::find($id);
             File::delete($data->image_link);
 
             //adding new image
@@ -251,15 +277,6 @@ class AdminController extends Controller
 
             $image->image_title = $request->imageTitle;
 
-            // if($request->hasFile('image')) {
-            //     $file = Input::file('image');
-            //     $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
-            //     $name = '/img/slider/Image_' .$fileOriginalName;
-                
-            //     $image->image_link = $name;
-
-            //     $file->move(public_path().'/img/ $name);
-            // }
             $name = '';
             if(Input::hasFile('image')) {
             $file = Input::file('image');
@@ -315,24 +332,7 @@ class AdminController extends Controller
                 //Deleting the old image
 
                 $data=Gallery::find($id);
-                // File::delete('img/gallery/'.$data->image_link);
-
-                // //adding new image
-
-                // $image = $data;
-
-                // $image->image_title = $request->imageTitle;
-
-                // if($request->hasFile('image')) {
-                //     $file = Input::file('image');
-                    
-                //     $name = 'Image_' .$file->getClientOriginalName();
-                    
-                //     $image->image_link = $name;
-
-                //     $file->move(public_path().'/img/gallery/', $name);
-                // }
-
+                
                 File::delete($data->image_link);
 
             //adding new image
@@ -340,16 +340,6 @@ class AdminController extends Controller
             $image = $data;
 
             $image->image_title = $request->imageTitle;
-
-            // if($request->hasFile('image')) {
-            //     $file = Input::file('image');
-            //     $fileOriginalName = preg_replace('/\s+/', '', $file->getClientOriginalName());
-            //     $name = '/img/slider/Image_' .$fileOriginalName;
-                
-            //     $image->image_link = $name;
-
-            //     $file->move(public_path().'/img/ $name);
-            // }
             $name = '';
             if(Input::hasFile('image')) {
             $file = Input::file('image');

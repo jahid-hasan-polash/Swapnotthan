@@ -3,7 +3,7 @@
 		<div class="row">
 			<!-- Logo -->
 			<div class="logo" >
-				<a href="{!! URL::route('index') !!}" title="Swapnotthan">
+				<a href="{!! URL::route('user.dashboard') !!}" title="Swapnotthan">
 					<!-- <img src="asset/img/logo.png" alt="Logo" /> -->
 					{!! Html::image("asset/img/swapnotthan.png",'',array('width'=>'280px')) !!}
 
