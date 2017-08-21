@@ -65,8 +65,10 @@ class PageController extends Controller
 
     public function executive(){
 
-        $committeeMembers = Committee::orderBy('created_at','desc')->first()->committeeMembers;
+        $committeeId = Committee::orderBy('fiscal','desc')->pluck('id');
+        // committeeMembers;
         // return $committeeMembers;
+        $committeeMembers = CommitteeMember::where('committee_id', $committeeId)->get();
         $gallery = Gallery::all();
         return view('user.members')
                     ->with('members',$committeeMembers)
