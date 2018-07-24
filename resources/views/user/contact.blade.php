@@ -49,8 +49,8 @@
 					<div class="panel-body">
 						<p>Shahjalal University of Science and Technology, Sylhet, 3114</p>
 						<ul class="list-unstyled">
-							<li><i class="fa-phone color-primary"></i>+8801738630814</li>
-							<li><i class="fa-phone color-primary"></i>+8801750843486</li>
+							<li><i class="fa-phone color-primary"></i>+8801627066059</li>
+							<li><i class="fa-phone color-primary"></i>+8801770275902</li>
 							<li>(Blood Donation Official)</li>
 							<li><i class="fa-phone color-primary"></i>+8801612007207</li>
 							<li><i class="fa-envelope color-primary"></i>swapnotthan@gmail.com</li>
