@@ -29,7 +29,7 @@
             <div class="form-group ">
 
                 <div class="col-xs-12">
-                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'password')) !!}
+                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
                 </div>
             </div>
 
